@@ -2,19 +2,20 @@ import React from "react";
 import VideoBackground from './VideoBackground';
 import Footer from "./Footer";
 import LoginPage from "./LoginPage";
+import Header from "./Header"; // Assuming you have created this
 
 const LoginContainer = () => {
-  return (
-    // This single div acts as the parent wrapper for all elements inside the return statement
-    <div className="flex flex-col min-h-screen">
-      <VideoBackground />
-      <div className="flex-grow flex flex-col justify-center items-center">
-        {/* Ensure the form is within this div so that there is only one parent */}
+    return (
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <VideoBackground />
+        <div className="flex-grow flex justify-center items-center">
           <LoginPage />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
-};
-
-export default LoginContainer;
+    );
+  };
+  
+  export default LoginContainer;
+  
