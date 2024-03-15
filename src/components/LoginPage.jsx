@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 const LoginPage = () => {
   return (
-      <form className="bg-candy-apple shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form className="bg-candy-apple shadow-md rounded px-8 pt-6 pb-8 mb-4 opacity-75">
         <div className="mb-4">
           <label
             className="block text-white text-sm font-bold mb-2"
