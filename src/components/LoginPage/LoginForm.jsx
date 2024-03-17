@@ -3,6 +3,7 @@ import VideoBackground from './VideoBackground';
 import Footer from "./Footer";
 
 const LoginForm = () => {
+  
   return (
       <form className="bg-candy-apple border-black border shadow-md rounded px-8 pt-6 pb-8 mb-4 opacity-75 hover:opacity-100">
         <div className="mb-4">
