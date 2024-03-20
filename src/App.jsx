@@ -5,6 +5,7 @@ import LoginPage from './components/LoginPage/LoginPage';
 import CircuitDetails from './components/Modals/CircuitDetails';
 import DriverDetails from './components/Modals/DriverDetails';
 import ConstructorDetails from './components/Modals/ConstructorDetails';
+import Favorites from './components/Modals/Favorites';
 
 function App() {
   const [circuit, setCircuit] = useState({
@@ -29,20 +30,21 @@ function App() {
 
   return (
     <div className="App">
-      {/* Button to open/close the modal
+     
       <button
         onClick={toggleModal}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4"
       >
         Show details
-      </button>*/}
-
-      {/*isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>*/}
+      </button>
+       
+      <Favorites />
+      {isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>}
       {/*isModalOpen && <DriverDetails driver={driver} update={toggleModal}/>*/}
       {/*isModalOpen && <ConstructorDetails constructor={constructor} update={toggleModal}/>*/}
 
       {/* Uncomment the line below to use the LoginPage */}
-      <LoginPage />
+     { /*<LoginPage /> */}
     </div>
   );
 }
