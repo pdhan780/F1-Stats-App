@@ -8,23 +8,66 @@ body {
   padding: 0;
 }
 
-.modal-header {
+.circuit-details-line {
   position: relative; /* Ensure the parent is positioned */
 }
 
-.modal-header::after {
+.circuit-details-line::after {
   content: '';
   position: absolute;
   right: 5px;
   top: 35px;
-  width: 685px; /* or the width of the curve */
-  height: 300px; /* or the height of the curve */
+  width: 355px; /* or the width of the curve */
+  height: 315px; /* or the height of the curve */
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
   transform: rotate(360deg); /* adjust rotation to match the design */
   transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
+}
+
+.driver-details-line {
+  position: relative; /* Ensure the parent is positioned */
+}
+
+.driver-details-line::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 35px;
+  width: 375px; /* or the width of the curve */
+  height: 810px; /* or the height of the curve */
+  border-top: 8px solid red; /* the line */
+  border-right: 8px solid red; /* the line */
+  border-top-right-radius: 20px; /* adjust to match the desired curve */
+  transform: rotate(360deg); /* adjust rotation to match the design */
+  transform-origin: top right; /* pivot for the rotation */
+  pointer-events: none; /* ensure the pseudo-element is not interactive */
+}
+
+.constructor-details-line {
+  position: relative; /* Ensure the parent is positioned */
+}
+
+.constructor-details-line::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 35px;
+  width: 375px; /* or the width of the curve */
+  height: 410px; /* or the height of the curve */
+  border-top: 8px solid red; /* the line */
+  border-right: 8px solid red; /* the line */
+  border-top-right-radius: 20px; /* adjust to match the desired curve */
+  transform: rotate(360deg); /* adjust rotation to match the design */
+  transform-origin: top right; /* pivot for the rotation */
+  pointer-events: none; /* ensure the pseudo-element is not interactive */
+}
+
+.driver-picture-size {
+  width: 590px;
+  height: 590px;
 }
 
 .login-header {
