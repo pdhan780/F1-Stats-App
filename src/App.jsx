@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './index.css';
 
-// import LoginPage from './components/LoginPage/LoginPage';
+import LoginPage from './components/LoginPage/LoginPage';
 import CircuitDetails from './components/Modals/CircuitDetails';
 
 function App() {
@@ -28,8 +28,10 @@ function App() {
       >
         Show details
       </button>
+
       {isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>}
-      {/* <LoginPage /> */}
+      {/* Uncomment the line below to use the LoginPage
+      <LoginPage />*/}
     </div>
   );
 }

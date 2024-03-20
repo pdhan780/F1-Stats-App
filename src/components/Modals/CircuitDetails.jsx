@@ -6,7 +6,7 @@ const CircuitDetails = ({ circuit, update }) => {
     // Backdrop
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       {/* Modal Container */}
-      <div className="bg-f1-black rounded-lg shadow-2xl p-6 w-1/2 flex flex-col border-white border">
+      <div className="bg-f1-black rounded-lg shadow-2xl p-6 w-1/2 flex flex-col modal-header animate-slidetop">
         {/* Header */}
         <div className="flex justify-between items-center border-b pb-3">
           <h1 className="text-2xl text-candy-apple font-f1 uppercase">Circuit Details</h1>
@@ -37,7 +37,7 @@ const CircuitDetails = ({ circuit, update }) => {
         {/* Replace these images with circuit images once we have them */}
         <div className="flex justify-around mt-4 ">
           <img
-            src="src/assets/f1-default-share.png"
+            src="https://media.formula1.com/image/upload/f_auto/q_auto/v1677245035/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Miami%20carbon.png.transform/3col/image.png"
             alt="Circuit placeholder"
             className="h-32 p-4 rounded-lg border-white border"
           />
