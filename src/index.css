@@ -37,7 +37,6 @@ body {
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform: rotate(360deg); /* adjust rotation to match the design */
   transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
@@ -76,7 +75,6 @@ body {
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform: rotate(360deg); /* adjust rotation to match the design */
   transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
@@ -95,7 +93,6 @@ body {
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform: rotate(360deg); /* adjust rotation to match the design */
   transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
@@ -112,18 +109,18 @@ body {
 .login-header::after {
   content: '';
   position: absolute;
-  right: 20px;
-  top: 32px;
-  width: 1675px; /* or the width of the curve */
-  height: 55px; /* or the height of the curve */
-  border-top: 8px solid white; /* the line */
-  border-right: 8px solid white; /* the line */
-  border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform: rotate(360deg); /* adjust rotation to match the design */
-  transform-origin: top right; /* pivot for the rotation */
-  
-  pointer-events: none; /* ensure the pseudo-element is not interactive */
+  right: 1rem; /* Keep this to ensure some space on the right */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  width: calc(100% - 15rem); /* Adjust width to account for logo and button */
+  height: 3rem; /* The height can remain constant if it fits your design */
+  border-top: 8px solid white;
+  border-right: 8px solid white;
+  border-top-right-radius: 20px;
+  pointer-events: none; /* Ensure the pseudo-element is not interactive */
 }
+
+
 
 /*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -1,6 +1,4 @@
 import React from "react";
-import VideoBackground from './VideoBackground';
-import Footer from "./Footer";
 
 const LoginForm = () => {
   
