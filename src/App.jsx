@@ -38,8 +38,8 @@ function App() {
         Show details
       </button>
        
-      <Favorites />
-      {isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>}
+      {isModalOpen && <Favorites update ={toggleModal}/>}
+      {/*isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>*/}
       {/*isModalOpen && <DriverDetails driver={driver} update={toggleModal}/>*/}
       {/*isModalOpen && <ConstructorDetails constructor={constructor} update={toggleModal}/>*/}
 
