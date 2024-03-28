@@ -8,6 +8,8 @@ import {
     Card,
     Typography,
   } from "@material-tailwind/react";
+  import DriverList from './DriverList';  
+  import ConstructorList from './ConstructorList'; 
 
 function Favorites({update}) {
 
