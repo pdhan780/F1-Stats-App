@@ -10,6 +10,7 @@ import {
   } from "@material-tailwind/react";
   import DriverList from './DriverList';  
   import ConstructorList from './ConstructorList'; 
+  import CircuitList from './CircuitList';
 
 function Favorites({update}) {
 
@@ -33,90 +34,14 @@ function Favorites({update}) {
         <div className="flex justify-around mt-4">
 
 
-          {/* Drivers List */}
-          <Card className="w-1/3 p-2">
-            <h6 className="f1-black font-f1 text-xl">Drivers</h6>
-        <div className="overflow-auto max-h-64">    
-        <List>   
-        <ListItem className='mt-1 mb-1'>
-          <ListItemPrefix>
-            <Avatar variant="circular" alt="candice" src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1920.medium.jpg/1708362076344.jpg" />
-          </ListItemPrefix>
-          <div>
-            <Typography className = "p-2" variant="h6" color="blue-gray">
-              Lewis Hamilton
-            </Typography>
-          </div>
-        </ListItem>
-        <ListItem className='mt-1 mb-1'>
-          <ListItemPrefix>
-            <Avatar variant="circular" alt="candice" src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1920.medium.jpg/1708362076344.jpg" />
-          </ListItemPrefix>
-          <div>
-            <Typography className = "p-2" variant="h6" color="blue-gray">
-              Lewis Hamilton
-            </Typography>
-          </div>
-        </ListItem>
-        <ListItem className='mt-1 mb-1'>
-          <ListItemPrefix>
-            <Avatar variant="circular" alt="candice" src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1920.medium.jpg/1708362076344.jpg" />
-          </ListItemPrefix>
-          <div>
-            <Typography className = "p-2" variant="h6" color="blue-gray">
-              Lewis Hamilton
-            </Typography>
-          </div>
-        </ListItem>
-        <ListItem className='mt-1 mb-1'>
-          <ListItemPrefix>
-            <Avatar variant="circular" alt="candice" src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1920.medium.jpg/1708362076344.jpg" />
-          </ListItemPrefix>
-          <div>
-            <Typography className = "p-2" variant="h6" color="blue-gray">
-              Lewis Hamilton
-            </Typography>
-          </div>
-        </ListItem>
-        <ListItem className='mt-1 mb-1'>
-          <ListItemPrefix>
-            <Avatar variant="circular" alt="candice" src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1920.medium.jpg/1708362076344.jpg" />
-          </ListItemPrefix>
-          <div>
-            <Typography className = "p-2" variant="h6" color="blue-gray">
-              Lewis Hamilton
-            </Typography>
-          </div>
-        </ListItem>
-            </List>
-            </div>
-          </Card>
-          
-          {/* Constructors List */}
-          
-          <Card className="w-1/3 p-2 ml-3 mr-3">
-            <h6 className="f1-black font-f1 text-xl">Constructors</h6>
-            <div className="overflow-auto max-h-64">       
-            <List>
-            <ListItem>Mercedes</ListItem>
-            <ListItem>Red Bull</ListItem>
-            <ListItem>Mclaren</ListItem>
-            </List>
-            </div>
-          </Card>
-          
-          {/* Circuits List */}
-       
-          <Card className="w-1/3 p-2">
-          <h6 className="f1-black font-f1 text-xl">Circuits</h6>
-          <div className="overflow-auto max-h-64">    
-            <List>
-            <ListItem>Monza</ListItem>
-            <ListItem>Dubai</ListItem>
-            <ListItem>Roma</ListItem>
-            </List>
-            </div>
-          </Card>
+          {/* Drivers List */} 
+          <DriverList />
+
+          {/* Constructors List */}       
+         <ConstructorList/>
+
+          {/* Circuits List */}      
+         <CircuitList/>
         </div>
 
         <div className="text-right mt-4">
