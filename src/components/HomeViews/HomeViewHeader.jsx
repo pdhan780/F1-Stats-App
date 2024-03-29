@@ -4,11 +4,15 @@ import Favorites from "../Modals/Favorites";
 const HomeViewHeader = () => {
   // State to manage the visibility of the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // Function to toggle the modal
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  // Dummy seasons for the dropdown
+  const seasons = ["2023", "2022", "2021", "2020", "2019"];
 
   return (
     <nav className="m-0 p-0">
@@ -23,25 +27,40 @@ const HomeViewHeader = () => {
             F1 ANALYSIS
           </h1>
         </div>
-        <div className="flex items-center space-x-10">
-          <button className="text-white font-f1 flex items-center hover:bg-f1-black hover:text-white px-3 py-6 focus:outline-none">
+        <div className="flex items-center space-x-10 relative">
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="transition ease-in-out delay-25 text-white font-f1 flex items-center hover:bg-f1-black hover:text-white px-3 py-6"
+          >
             SEASON
             <img
               src="src/assets/dropdown-chevron.png"
               alt="Down Arrow"
-              className="h-2 ml-1" // Add some left margin to separate the text and the icon
+              className="h-2 ml-1"
             />
           </button>
-
+          {isDropdownOpen && (
+            <div className="absolute top-full bg-f1-black season-dropdown">
+              {seasons.map((season) => (
+                <div
+                  key={season}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="px-11 py-3 hover:bg-f1-black2 text-white cursor-pointer"
+                >
+                  {season}
+                </div>
+              ))}
+            </div>
+          )}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="text-white font-f1 hover:bg-f1-black hover:text-white px-3 py-6 focus:outline-none"
+            className="transition ease-in-out delay-25 text-white font-f1 hover:bg-f1-black hover:text-white px-3 py-6 focus:outline-none"
           >
             FAVORITES
           </button>
           <a
             href="/about"
-            className="hover:bg-f1-black font-f1 text-white px-4 py-6"
+            className="transition ease-in-out delay-25 hover:bg-f1-black font-f1 text-white px-4 py-6"
           >
             ABOUT
           </a>
