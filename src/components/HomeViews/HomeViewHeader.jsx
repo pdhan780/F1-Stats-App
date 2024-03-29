@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Favorites from "../Modals/Favorites";
 
 const HomeViewHeader = () => {
   // State to manage the visibility of the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null); // Ref for the dropdown
 
   // Function to toggle the modal
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+    // Function to close the dropdown if clicked outside
+    useEffect(() => {
+        function handleClickOutside(event) {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsDropdownOpen(false);
+          }
+        }
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, [dropdownRef]);
 
   // Dummy seasons for the dropdown
   const seasons = ["2023", "2022", "2021", "2020", "2019"];
@@ -40,11 +56,10 @@ const HomeViewHeader = () => {
             />
           </button>
           {isDropdownOpen && (
-            <div className="absolute top-full bg-f1-black season-dropdown">
+            <div ref={dropdownRef} className="absolute top-full bg-f1-black season-dropdown">
               {seasons.map((season) => (
                 <div
                   key={season}
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="px-11 py-3 hover:bg-f1-black2 text-white cursor-pointer"
                 >
                   {season}
