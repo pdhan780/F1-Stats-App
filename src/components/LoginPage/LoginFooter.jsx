@@ -1,4 +1,4 @@
-const Footer = () => {
+const LoginFooter = () => {
   return (
     <footer className="bg-candy-apple w-full static bottom-0">
       <div className="text-center text-white py-8 font-mono">
@@ -8,4 +8,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default LoginFooter;

@@ -30,10 +30,10 @@ body {
 .circuit-details-line::after {
   content: '';
   position: absolute;
-  right: 5px;
-  top: 35px;
-  width: 355px; /* or the width of the curve */
-  height: 315px; /* or the height of the curve */
+  right: calc(100% - 38.5rem);
+  top: 8.5%;
+  width: calc(100% - 17rem); /* or the width of the curve */
+  height: calc(100% - 3.7rem); /* or the height of the curve */
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
@@ -70,8 +70,8 @@ body {
   position: absolute;
   right: 5px;
   top: 35px;
-  width: 375px; /* or the width of the curve */
-  height: 810px; /* or the height of the curve */
+  width: calc(100% - 16.5rem); /* or the width of the curve */
+  height: calc(100% - 3.7rem); /* or the height of the curve */
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
@@ -88,8 +88,8 @@ body {
   position: absolute;
   right: 5px;
   top: 35px;
-  width: 375px; /* or the width of the curve */
-  height: 410px; /* or the height of the curve */
+  width: calc(100% - 23rem); /* or the width of the curve */
+  height: calc(100% - 3.7rem); /* or the height of the curve */
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */

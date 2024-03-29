@@ -1,5 +1,7 @@
 // IMPLEMENT URL and replace with actual circuit images once we have them
 import { useState } from "react";
+import CloseButton from "./CloseButton";
+import AddFavoritesButton from "./AddFavoritesButton";
 
 const CircuitDetails = ({ circuit, update }) => {
   return (
@@ -31,13 +33,8 @@ const CircuitDetails = ({ circuit, update }) => {
             </p>
           </div>
           <div className="flex flex-col space-y-2 items-center justify-between">
-            <button
-              className="bg-white hover:bg-f1-black hover:text-white hover:border-white border w-56 text-f1-black font-bold py-3 px-4 rounded shadow-xl focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={update}
-            >
-              Close
-            </button>
+            <CloseButton update={update} />
+            <AddFavoritesButton />
             <button
               className="bg-white hover:bg-f1-black hover:text-white hover:border-white border w-56 text-f1-black font-bold py-3 px-4 rounded shadow-xl focus:outline-none focus:shadow-outline"
               type="button"

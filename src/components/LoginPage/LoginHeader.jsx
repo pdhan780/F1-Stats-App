@@ -1,4 +1,4 @@
-const Header = () => {
+const LoginHeader = () => {
   return (
     <header className="w-full bg-candy-apple py-8 items-center">
       <div className="flex login-header overflow-x-clip">
@@ -23,4 +23,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LoginHeader;

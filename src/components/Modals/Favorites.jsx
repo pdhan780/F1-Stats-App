@@ -1,4 +1,5 @@
 import React from 'react';
+import CloseButton from "./CloseButton";
 // Import necessary components
 import {
     List,
@@ -15,19 +16,13 @@ import {
 function Favorites({update}) {
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"> 
-      <div className="bg-f1-black p-5 rounded-lg max-w-4xl w-full relative">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center "> 
+      <div className="bg-f1-black p-5 rounded-lg max-w-4xl w-full relative animate-slidetop">
         <div className="flex justify-between">
           <h1 className="text-2xl text-candy-apple font-f1 uppercase">Favorites</h1>
         </div>
         <div className = "absolute top-0 right-0 mt-2 mr-5">
-        <button
-              className="bg-white  hover:bg-f1-black hover:text-white hover:border-white border w-56 text-f1-black font-bold py-3 px-4 rounded shadow-xl focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={update}
-            >
-              Close
-            </button>
+            <CloseButton update={update} />
         </div>
          
          {/*Container of lists*/}

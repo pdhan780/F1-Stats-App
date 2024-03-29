@@ -6,6 +6,7 @@ import CircuitDetails from './components/Modals/CircuitDetails';
 import DriverDetails from './components/Modals/DriverDetails';
 import ConstructorDetails from './components/Modals/ConstructorDetails';
 import Favorites from './components/Modals/Favorites';
+import HomeViewHeader from './components/HomeViews/HomeViewHeader';
 
 function App() {
   const [circuit, setCircuit] = useState({
@@ -30,21 +31,21 @@ function App() {
 
   return (
     <div className="App">
-     
+     {/*
       <button
         onClick={toggleModal}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4"
       >
         Show details
-      </button>
+  </button>*/}
        
-      {isModalOpen && <Favorites update ={toggleModal}/>}
+      {/*isModalOpen && <Favorites update ={toggleModal}/>*/}
       {/*isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>*/}
       {/*isModalOpen && <DriverDetails driver={driver} update={toggleModal}/>*/}
       {/*isModalOpen && <ConstructorDetails constructor={constructor} update={toggleModal}/>*/}
-
+      {<HomeViewHeader />}
       {/* Uncomment the line below to use the LoginPage */}
-     { /*<LoginPage /> */}
+     {/* <LoginPage /> */}
     </div>
   );
 }
