@@ -60,6 +60,7 @@ const HomeViewHeader = () => {
               {seasons.map((season) => (
                 <div
                   key={season}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="px-11 py-3 hover:bg-f1-black2 text-white cursor-pointer"
                 >
                   {season}
