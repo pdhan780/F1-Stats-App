@@ -6,8 +6,7 @@ import CircuitDetails from './components/Modals/CircuitDetails';
 import DriverDetails from './components/Modals/DriverDetails';
 import ConstructorDetails from './components/Modals/ConstructorDetails';
 import Favorites from './components/Modals/Favorites';
-import HomeViewHeader from './components/HomeViews/HomeViewHeader';
-import HomeViewFooter from './components/HomeViews/HomeViewFooter';
+import HomeViewPage from './components/HomeViews/HomeViewPage';
 
 function App() {
   const [circuit, setCircuit] = useState({
@@ -44,9 +43,7 @@ function App() {
       {/*isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>*/}
       {/*isModalOpen && <DriverDetails driver={driver} update={toggleModal}/>*/}
       {/*isModalOpen && <ConstructorDetails constructor={constructor} update={toggleModal}/>*/}
-      {<HomeViewHeader />}
-      <div className="bg-white h-screen"></div>
-      {<HomeViewFooter />}
+      <HomeViewPage />
       {/* Uncomment the line below to use the LoginPage */}
      {/* <LoginPage /> */}
     </div>

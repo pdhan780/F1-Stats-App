@@ -37,7 +37,6 @@ body {
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
 
@@ -55,8 +54,6 @@ body {
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform: rotate(360deg); /* adjust rotation to match the design */
-  transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
  
 }
@@ -75,7 +72,6 @@ body {
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
 
@@ -93,7 +89,6 @@ body {
   border-top: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
   border-top-right-radius: 20px; /* adjust to match the desired curve */
-  transform-origin: top right; /* pivot for the rotation */
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
 
@@ -144,6 +139,8 @@ body {
   position: absolute; /* Ensure the parent is positioned */
   right: calc(100% - 7.5em);
 }
+
+
 
 /*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -13,6 +13,8 @@ export default {
     },
     fontFamily: {
       'f1': ['F1Font', 'sans-serif'], // Add default fallbacks as necessary
+      'f2-wide': ['F1Wide', 'sans-serif'], // Add default fallbacks as necessary
+      'f1-bold': ['F1Bold', 'sans-serif'], // Add default fallbacks as necessary
     },},
     content: {
       'footer-container': 'footer-container',
