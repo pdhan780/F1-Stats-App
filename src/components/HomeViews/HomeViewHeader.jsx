@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Favorites from "../Modals/Favorites";
+import About from "../Modals/About";
 
 const HomeViewHeader = () => {
   // State to manage the visibility of the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null); // Ref for the dropdown
 
@@ -12,20 +14,24 @@ const HomeViewHeader = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-    // Function to close the dropdown if clicked outside
-    useEffect(() => {
-        function handleClickOutside(event) {
-          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsDropdownOpen(false);
-          }
-        }
-        // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-          // Unbind the event listener on clean up
-          document.removeEventListener("mousedown", handleClickOutside);
-        };
-      }, [dropdownRef]);
+  const toggleAbout = () => {
+    setIsAboutOpen(!isAboutOpen);
+  };
+
+  // Function to close the dropdown if clicked outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   // Dummy seasons for the dropdown
   const seasons = ["2023", "2022", "2021", "2020", "2019"];
@@ -56,7 +62,10 @@ const HomeViewHeader = () => {
             />
           </button>
           {isDropdownOpen && (
-            <div ref={dropdownRef} className="absolute top-full bg-f1-black season-dropdown">
+            <div
+              ref={dropdownRef}
+              className="absolute top-full bg-f1-black season-dropdown"
+            >
               {seasons.map((season) => (
                 <div
                   key={season}
@@ -74,17 +83,18 @@ const HomeViewHeader = () => {
           >
             FAVORITES
           </button>
-          <a
-            href="/about"
-            className="transition ease-in-out delay-25 hover:bg-f1-black font-f1 text-white px-4 py-6"
+          <button
+            onClick={() => setIsAboutOpen(true)}
+            className="transition ease-in-out delay-25 text-white font-f1 hover:bg-f1-black hover:text-white px-3 py-6 focus:outline-none"
           >
             ABOUT
-          </a>
+          </button>
         </div>
         <div className="flex"></div>
         <div className="flex"></div>
       </div>
       {isModalOpen && <Favorites update={toggleModal} />}
+        {isAboutOpen && <About update={toggleAbout} />}
     </nav>
   );
 };
