@@ -10,6 +10,7 @@ export default {
       'f1-black2': '#1f1f27',
       'f1-gray': '#999999',
       'f1-dark-gray': '#303037',
+      'f1-light-gray': '#f4f4f4',
     },
     fontFamily: {
       'f1': ['F1Font', 'sans-serif'], // Add default fallbacks as necessary

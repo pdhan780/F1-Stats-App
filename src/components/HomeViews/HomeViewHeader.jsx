@@ -34,7 +34,7 @@ const HomeViewHeader = () => {
   }, [dropdownRef]);
 
   // Dummy seasons for the dropdown
-  const seasons = ["2023", "2022", "2021", "2020", "2019"];
+  const seasons = ["2023", "2022", "2021", "2020", "2019",];
 
   return (
     <nav className="m-0 p-0">
@@ -64,7 +64,7 @@ const HomeViewHeader = () => {
           {isDropdownOpen && (
             <div
               ref={dropdownRef}
-              className="absolute top-full bg-f1-black season-dropdown"
+              className="absolute top-full bg-f1-black season-dropdown overflow-auto scrollbar max-h-64"
             >
               {seasons.map((season) => (
                 <div
