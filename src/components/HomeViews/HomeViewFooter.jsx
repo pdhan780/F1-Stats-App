@@ -6,9 +6,8 @@ const HomeViewFooter = () => {
         <div className="flex border-r-8 border-b-8 rounded-br-3xl border-f1-dark-gray pr-8 py-8">
           <div className="flex-col flex-1">
             <h2 className="font-f1 font-bold">Visual References</h2>
-            <p>Official F1 Website</p>
-            <p>Homies Github</p>
-            <p>Tailwind CSS Website</p>
+            <p><a target="_blank" href="https://www.formula1.com/en.html" className="hover:underline">Official F1 Website</a></p>
+            <p><a target="_blank" href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS Website</a></p>
           </div>
           <div className="flex-col flex-1">
             <h2 className="font-f1 font-bold">Contact Us</h2>
@@ -25,7 +24,7 @@ const HomeViewFooter = () => {
       </div>
       <div className="flex-col flex-1 text-white text-center pb-4 font-f1">
         <p>
-          The materials on this website are for demonstration purposes only.
+        © {new Date().getFullYear()} | Developed by Brock Pearson & Pelvain Dhanda | All rights reserved.
         </p>
       </div>
     </footer>

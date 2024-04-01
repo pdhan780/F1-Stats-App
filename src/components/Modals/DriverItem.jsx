@@ -13,7 +13,7 @@ const DriverItem = () => {
           <Avatar variant="circular" alt="candice" src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1920.medium.jpg/1708362076344.jpg" />
         </ListItemPrefix>
         <div>
-          <Typography className="p-2" variant="h6" color="blue-gray">
+          <Typography className="pl-2 font-bold flex-1 text-f1-black" variant="h6" color="blue-gray">
             Lewis Hamilton
           </Typography>
         </div>

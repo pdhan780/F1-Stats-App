@@ -12,7 +12,7 @@ import {
 const HomeViewRaceList = () => {
     return (
         <div className="overflow-y-scroll max-h-96 scrollbar">
-          <List className="[&>*:nth-child(odd)]:bg-f1-light-gray [&>*:nth-child(even)]:bg-white">
+          <List className="[&>*:nth-child(odd)]:bg-f1-light-gray [&>*:nth-child(even)]:bg-white p-0 m-0">
           <HomeViewRaceItem number="1" name="Saudi Arabian Grand Prix" />
           <HomeViewRaceItem number="2" name="Saudi Arabian Grand Prix" />
           <HomeViewRaceItem number="3" name="Saudi Arabian Grand Prix" />

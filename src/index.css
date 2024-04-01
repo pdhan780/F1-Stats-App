@@ -49,23 +49,6 @@ body {
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
 
-.favorites-details-line {
-  position: relative;
-}
-
-.favorites-details-line::after {
-  content: "";
-  position: absolute;
-  right: 5px;
-  top: 35px;
-  width: 500px; /* or the width of the curve */
-  height: 810px; /* or the height of the curve */
-  border-top: 8px solid red; /* the line */
-  border-right: 8px solid red; /* the line */
-  border-top-right-radius: 20px; /* adjust to match the desired curve */
-  pointer-events: none; /* ensure the pseudo-element is not interactive */
-}
-
 .driver-details-line {
   position: relative; /* Ensure the parent is positioned */
 }
@@ -111,6 +94,26 @@ body {
   top: calc(100% - 16.2rem);
   width: calc(100% - 1.9rem); /* or the width of the curve */
   height: calc(100% - 3.2rem); /* or the height of the curve */
+  border-top: 8px solid red; /* the line */
+  border-bottom: 8px solid red; /* the line */
+  border-right: 8px solid red; /* the line */
+  border-top-right-radius: 20px; /* adjust to match the desired curve */
+  border-bottom-right-radius: 20px;
+  pointer-events: none; /* ensure the pseudo-element is not interactive */
+}
+
+
+.favourites-line {
+  position: relative; /* Ensure the parent is positioned */
+}
+
+.favourites-line::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: calc(100% - 27rem);
+  width: calc(100% - 1.6rem); /* or the width of the curve */
+  height: calc(100% - 2.6rem); /* or the height of the curve */
   border-top: 8px solid red; /* the line */
   border-bottom: 8px solid red; /* the line */
   border-right: 8px solid red; /* the line */
