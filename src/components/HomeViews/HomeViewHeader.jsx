@@ -46,6 +46,7 @@ const HomeViewHeader = () => {
     setIsAboutOpen(!isAboutOpen);
   };
 
+
   // Function to close the dropdown if clicked outside
   useEffect(() => {
     function handleClickOutside(event) {
@@ -60,6 +61,14 @@ const HomeViewHeader = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
+
+  const [favoritesEmpty, setFavoritesEmpty] = useState(false);
+  
+  // Function to handle emptying favorites
+  const handleEmptyFavorites = () => {
+    // Set the empty state to true
+    setFavoritesEmpty(true);
+  };
 
   return (
     <nav className="m-0 p-0">
@@ -118,7 +127,7 @@ const HomeViewHeader = () => {
         <div className="flex"></div>
         <div className="flex"></div>
       </div>
-      {isModalOpen && <Favorites update={toggleModal} />}
+      {isModalOpen && <Favorites update={toggleModal} updateEmpty = {handleEmptyFavorites} favoritesEmpty = {favoritesEmpty} />}
       {isAboutOpen && <About update={toggleAbout} />}
     </nav>
   );
