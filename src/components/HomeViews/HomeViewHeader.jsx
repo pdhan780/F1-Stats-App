@@ -1,13 +1,41 @@
 import React, { useState, useEffect, useRef } from "react";
 import Favorites from "../Modals/Favorites";
 import About from "../Modals/About";
+import { supabase } from "../../SupaBase/supabaseClient";
 
 const HomeViewHeader = () => {
   // State to manage the visibility of the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [seasons, setSeasons] = useState([]);
   const dropdownRef = useRef(null); // Ref for the dropdown
+
+  // Function to fetch seasons from Supabase
+  async function fetchSeasons() {
+    try {
+      let { data, error, status } = await supabase
+      .from("seasons")
+      .select("year")
+      .order("year", { ascending: false });
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        // Assuming data is an array of season objects
+        setSeasons(data.map((season) => season.year)); // Map to your season identifier, e.g., year
+      }
+    } catch (error) {
+      console.error("error", error.message);
+    }
+  }
+
+  // Effect to fetch seasons on mount
+  useEffect(() => {
+    fetchSeasons();
+  }, []);
 
   // Function to toggle the modal
   const toggleModal = () => {
@@ -32,9 +60,6 @@ const HomeViewHeader = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
-
-  // Dummy seasons for the dropdown
-  const seasons = ["2023", "2022", "2021", "2020", "2019",];
 
   return (
     <nav className="m-0 p-0">
@@ -94,7 +119,7 @@ const HomeViewHeader = () => {
         <div className="flex"></div>
       </div>
       {isModalOpen && <Favorites update={toggleModal} />}
-        {isAboutOpen && <About update={toggleAbout} />}
+      {isAboutOpen && <About update={toggleAbout} />}
     </nav>
   );
 };
