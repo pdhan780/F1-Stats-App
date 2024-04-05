@@ -17,6 +17,7 @@ const HomeViewRaceList = ({ races, onResultsClick}) => {
             key={race.round}
             round={race.round}
             name={race.name}
+            raceId={race.raceId}
             onResultsClick={onResultsClick}
           />
         ))}

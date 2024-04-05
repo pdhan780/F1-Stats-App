@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HomeViewHeader from "./HomeViewHeader/HomeViewHeader";
 import HomeViewFooter from "./HomeViewFooter/HomeViewFooter";
-import HomeViewRaces from "./HomeViewRaces";
+import HomeViewRaces from "./HomeViewRaces/HomeViewRaces";
 import HomeViewResultsPage from "./HomeViewResultsPage";
 
 const HomeViewPage = () => {
@@ -9,9 +9,9 @@ const HomeViewPage = () => {
   const [selectedRace, setSelectedRace] = useState(null);
 
   // Callback function to receive data from HomeViewRaces
-  const handleRaceItemClick = (name) => {
-    setSelectedRace(name);
-    console.log("Results clicked for race:", name);
+  const handleRaceItemClick = (raceId) => {
+    setSelectedRace(raceId);
+    console.log("Results clicked for race:", raceId);
     console.log("Data lifted to HomeViewPage component!");
   };
 

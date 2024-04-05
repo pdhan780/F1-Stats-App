@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { supabase } from "../../SupaBase/supabaseClient";
+import { supabase } from "../../../SupaBase/supabaseClient";
 import HomeViewRaceList from "./HomeViewRaceList";
 
 const HomeViewRaces = ({ season, onRaceItemClick }) => {
@@ -15,7 +15,7 @@ const HomeViewRaces = ({ season, onRaceItemClick }) => {
     try {
       const { data, error } = await supabase
         .from("races")
-        .select("round, name")
+        .select("raceId, round, name")
         .eq("year", season)
         .order("round", { ascending: true });
 

@@ -1,7 +1,7 @@
-const HomeViewRaceItem = ({ round, name, onResultsClick}) => {
+const HomeViewRaceItem = ({ round, name, raceId, onResultsClick}) => {
   const handleResultsClick = () => {
     // Call the onResultsClick callback function and pass the name data
-    onResultsClick(name);
+    onResultsClick(raceId);
   };
  
 
