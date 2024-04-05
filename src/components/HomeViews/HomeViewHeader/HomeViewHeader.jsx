@@ -52,7 +52,7 @@ const HomeViewHeader = ({ onSeasonSelect }) => {
         <div className="flex"></div>
         <div className="flex"></div>
       </div>
-      {isModalOpen && <Favorites update={toggleModal} />}
+      {isModalOpen && <Favorites update={toggleModal} updateEmpty = {handleEmptyFavorites} favoritesEmpty = {favoritesEmpty} />}
       {isAboutOpen && <About update={toggleAbout} />}
     </nav>
   );
