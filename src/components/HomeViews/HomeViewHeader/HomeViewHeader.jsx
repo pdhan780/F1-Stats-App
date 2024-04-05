@@ -14,6 +14,13 @@ const HomeViewHeader = ({ onSeasonSelect }) => {
     onSeasonSelect(season);
   };
 
+  const [favoritesEmpty, setFavoritesEmpty] = useState(false);
+  // Function to handle emptying favorites
+  const handleEmptyFavorites = () => {
+    // Set the empty state to true
+    setFavoritesEmpty(true);
+  };
+
   return (
     <nav className="m-0 p-0">
       <div className="flex items-center justify-between bg-candy-apple m-0 p-0">
