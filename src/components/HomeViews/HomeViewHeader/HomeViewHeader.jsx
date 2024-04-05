@@ -38,6 +38,7 @@ const HomeViewHeader = ({ onSeasonSelect }) => {
           <SeasonDropdown onSeasonSelect={handleSeasonSelect} />
           <button
             onClick={() => setIsModalOpen(true)}
+            disabled={favoritesEmpty}
             className="transition ease-in-out delay-25 text-white font-f1 hover:bg-f1-black hover:text-white px-3 py-6 focus:outline-none"
           >
             FAVORITES
