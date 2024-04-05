@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../../SupaBase/supabaseClient";
 import HomeViewRaceList from "./HomeViewRaceList";
 
-const HomeViewRaces = ({ season }) => {
+const HomeViewRaces = ({ season, onRaceItemClick }) => {
   const [races, setRaces] = useState([]);
 
   useEffect(() => {
@@ -27,6 +27,14 @@ const HomeViewRaces = ({ season }) => {
     }
   }
 
+  // Define a function to handle race item click
+  const handleRaceItemClick = (name) => {
+    // Do something with the clicked race name, such as sending it to the parent
+    onRaceItemClick(name)
+    console.log("Results clicked for race:", name);
+    console.log("Data lifted to HomeViewRaces component!");
+  };
+
   return (
     <div className="border-r-8 border-b-8 border-t-8 border-f1-black rounded-br-3xl rounded-tr-3xl flex-col p-1.5">
       <div className="test flex p-4 justify-center">
@@ -42,7 +50,7 @@ const HomeViewRaces = ({ season }) => {
       </div>
       <div className="flex">
         {races.length > 0 ? (
-          <HomeViewRaceList races={races} />
+          <HomeViewRaceList races={races}  onResultsClick={handleRaceItemClick} />
         ) : (
           <p>No races to display.</p> // Placeholder text when no races are found
         )}

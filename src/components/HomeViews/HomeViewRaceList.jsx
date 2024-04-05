@@ -8,7 +8,7 @@ import {
 } from "@material-tailwind/react";
 import HomeViewRaceItem from "./HomeViewRaceItem";
 
-const HomeViewRaceList = ({ races }) => {
+const HomeViewRaceList = ({ races, onResultsClick}) => {
   return (
     <div className="overflow-y-scroll max-h-96 scrollbar">
       <List className="[&>*:nth-child(odd)]:bg-f1-light-gray [&>*:nth-child(even)]:bg-white p-0 m-0">
@@ -17,6 +17,7 @@ const HomeViewRaceList = ({ races }) => {
             key={race.round}
             round={race.round}
             name={race.name}
+            onResultsClick={onResultsClick}
           />
         ))}
       </List>

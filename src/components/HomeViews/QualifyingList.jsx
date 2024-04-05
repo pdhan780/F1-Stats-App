@@ -10,6 +10,8 @@ import QualifyingItem from "./QualifyingItem";
 
   // Parent List component for Drivers
 const QualifyingList = () => {
+
+  
     return (
         <div className="overflow-y-scroll max-h-64 scrollbar">
           <List className="[&>*:nth-child(odd)]:bg-f1-light-gray [&>*:nth-child(even)]:bg-white p-0 m-0">

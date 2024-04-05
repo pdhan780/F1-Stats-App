@@ -1,6 +1,11 @@
 import QualifyingList from "./QualifyingList";
+import React, { useState, useEffect } from "react";
+import { supabase } from "../../SupaBase/supabaseClient";
 
-const HomeViewQualifying = () => {
+const HomeViewQualifying = (circuit) => {;
+
+  console.log("Inside Qualifying:" , circuit)
+
     return (<div className="border-r-8 border-b-8 border-t-8 border-f1-black rounded-br-3xl rounded-tr-3xl flex-col p-1.5">
     <div className="test flex p-4 justify-center">
     <h1 className="font-bold text-candy-apple text-2xl font-f1 text-center p-4 bg-white">QUALIFYING</h1></div>
