@@ -150,6 +150,11 @@ body {
   right: calc(100% - 7.7em);
 }
 
+button[disabled] {
+  opacity: 0.5; /* Adjust the opacity to your preference */
+  cursor: not-allowed; /* Change cursor to not-allowed when disabled */
+}
+
 /*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
