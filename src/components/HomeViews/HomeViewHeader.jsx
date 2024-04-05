@@ -62,8 +62,8 @@ const HomeViewHeader = () => {
     };
   }, [dropdownRef]);
 
+
   const [favoritesEmpty, setFavoritesEmpty] = useState(false);
-  
   // Function to handle emptying favorites
   const handleEmptyFavorites = () => {
     // Set the empty state to true

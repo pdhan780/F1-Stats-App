@@ -8,7 +8,6 @@ function Favorites({ update,updateEmpty,favoritesEmpty }) {
   // Use React state to manage the empty state of the favorites container
   
 
-
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
       <div className="bg-f1-black p-5 rounded-lg max-w-4xl w-full relative animate-slidetop favourites-line">
@@ -19,8 +18,7 @@ function Favorites({ update,updateEmpty,favoritesEmpty }) {
         </div>
 
         {/* Container of lists */}
-
-          {/*pass empty list here?*/}
+        
         {!favoritesEmpty && (
           <div className="flex justify-around mt-4 space-x-4">
             {/* Drivers List */}
@@ -33,16 +31,6 @@ function Favorites({ update,updateEmpty,favoritesEmpty }) {
             <CircuitList />
           </div>
         )}
-        <div className="flex justify-around mt-4 space-x-4">
-            {/* Drivers List */}
-            <DriverList />
-
-            {/* Constructors List */}
-            <ConstructorList />
-
-            {/* Circuits List */}
-            <CircuitList />
-          </div>
  
           <div className="flex py-2 space-x-4">
             <div className="flex-1">
