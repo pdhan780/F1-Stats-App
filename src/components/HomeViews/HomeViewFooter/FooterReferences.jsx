@@ -48,6 +48,16 @@ const FooterReferences = () => {
             Formula1 Points
           </a>
         </p>
+        <p>
+          <a
+            target="_blank"
+            href="
+            https://fontawesome.com/"
+            className="hover:underline"
+          >
+            Font Awesome
+          </a>
+        </p>
       </div>
     </div>
   );

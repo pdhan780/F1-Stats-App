@@ -1,7 +1,13 @@
+import {
+  ListItem,
+  ListItemPrefix,
+  Avatar,
+  Typography,
+} from "@material-tailwind/react";
 import DriverDetails from "../../Modals/DriverDetails";
 import { useState } from "react";
 
-const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3 }) => {
+const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo }) => {
   const [driver1, setDriver] = useState({
     name: "Lewis Hamilton",
     dob: "January 7, 1985",
@@ -23,6 +29,7 @@ const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3 }) => {
         className="w-1/6 font-bold text-left hover:text-candy-apple"
         onClick={toggleDriverModal}
       >
+      <Avatar variant="circular" alt="candice" src={driver_photo} /> 
         {driver}
       </button>
       <span className="w-1/6 text-left">{constructor}</span>

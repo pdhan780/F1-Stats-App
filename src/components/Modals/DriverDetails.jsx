@@ -6,7 +6,7 @@ import AddFavoritesButton from "./AddFavoritesButton";
 const DriverDetails = ({ driver, update }) => {
   return (
     // Backdrop
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
       {/* Modal Container */}
       <div className="bg-f1-black rounded-lg shadow-2xl p-6 flex flex-col driver-details-line animate-slidetop">
         {/* Header */}
