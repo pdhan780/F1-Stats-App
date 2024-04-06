@@ -5,7 +5,7 @@ import HomeViewRaces from "./HomeViewRaces/HomeViewRaces";
 import HomeViewResultsPage from "./HomeViewResultsPage";
 
 const HomeViewPage = () => {
-  const [selectedSeason, setSelectedSeason] = useState("2024");
+  const [selectedSeason, setSelectedSeason] = useState("2023");
   const [selectedRace, setSelectedRace] = useState(null);
 
   // Callback function to receive data from HomeViewRaces

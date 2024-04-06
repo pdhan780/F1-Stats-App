@@ -1,12 +1,41 @@
 // IMPLEMENT URL and replace with actual circuit images once we have them
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CloseButton from "./CloseButton";
 import AddFavoritesButton from "./AddFavoritesButton";
+import { supabase } from "../../SupaBase/supabaseClient";
 
-const ConstructorDetails = ({ constructor, update }) => {
+const ConstructorDetails = ({ constructorId, update }) => {
+  const [constructors, setConstructors] = useState([]);
+
+  async function fetchResults() {
+    try {
+      let { data, error, status } = await supabase
+        .from("constructors")
+        .select(`name, nationality, url, constructor_profile`)
+        .eq("constructorId", constructorId);
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setConstructors(data);
+        console.log(data);
+      }
+    } catch (error) {
+      console.error("error", error.message);
+    }
+  }
+
+  useEffect(() => {
+    if (constructors) {
+      fetchResults();
+    }
+  }, []);
+
   return (
     // Backdrop
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
       {/* Modal Container */}
       <div className="bg-f1-black rounded-lg shadow-2xl p-6 flex flex-col constructor-details-line animate-slidetop">
         {/* Header */}
@@ -18,36 +47,51 @@ const ConstructorDetails = ({ constructor, update }) => {
 
         {/* Body */}
         <div className="flex space-y-2 border-b pb-3">
-          <div className="flex-1 flex-col space-y-2">
-            <h2 className="text-xl text-white font-f1 font-b uppercase">
-              Red Bull Racing
-            </h2>
-            <p className="text-white mb-4 font-f1 font-b uppercase">
-              NATIONALITY: United Kingdom
-            </p>
-            <p className="text-white mb-4 font-f1 font-b uppercase">
-              url
-            </p>
+          <div className="flex-1 flex-col space-y-2 text-left text-xl text-white">
+            {constructors.length > 0 ? (
+              <>
+                <h2 className="text-2xl font-bold uppercase">
+                  {constructors[0].name}
+                </h2>
+                <p >
+                  Nationality: {constructors[0].nationality}
+                </p>
+                <a
+                  href={constructors[0].url}
+                  target="_blank"
+                  className="hover:underline hover:decoration-candy-apple"
+                >
+                  More Info
+                  <img
+                    src="src/assets/side-chevron.png"
+                    alt="Side Arrow"
+                    className="h-4 pl-1 pb-1 inline-block"
+                  />
+                </a>
+              </>
+            ) : (
+              <h2>
+                Loading...
+              </h2>
+            )}
           </div>
           <div className="flex flex-col space-y-2 items-center justify-between">
             <CloseButton update={update} />
             <AddFavoritesButton />
-            <button
-              className="bg-white hover:bg-f1-black hover:text-white hover:border-white border w-56 text-f1-black font-bold py-3 px-4 rounded shadow-xl focus:outline-none focus:shadow-outline"
-              type="button"
-            >
-              Add Favorites
-            </button>
           </div>
         </div>
         {/* Replace these images with circuit images once we have them */}
-        <div className="flex justify-around mt-4 ">
-          <img
-            src="https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2024/red-bull-racing.png.transform/6col/image.png"
-            alt="Constructor placeholder"
-            className="p-4 rounded-lg border-white border"
-          />
-        </div>
+        {constructors.length > 0 ? (
+          <div className="flex justify-around mt-4 ">
+            <img
+              src={constructors[0].constructor_profile}
+              alt="Constructor placeholder"
+              className="constructor_photo_bg rounded border-white border"
+            />
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </div>
   );

@@ -17,13 +17,14 @@ const QualifyingList = ({qualifying}) => {
           <QualifyingItem 
             key={index}
             pos={qualifying.position}
-            driver={qualifying.drivers.forename + " " + qualifying.drivers.surname} // Assuming you have a surname in drivers object
-            constructor={qualifying.constructors.name} // Assuming you have a name in constructors object
+            driver={qualifying.drivers.forename + " " + qualifying.drivers.surname}
+            constructor={qualifying.constructors.name}
             Q1={qualifying.q1}
             Q2={qualifying.q2}
             Q3={qualifying.q3}
             driver_photo={qualifying.drivers.driver_photo}
             driverId ={qualifying.drivers.driverId}
+            constructorId={qualifying.constructors.constructorId}
           />
         ))}          </List>
         </div>

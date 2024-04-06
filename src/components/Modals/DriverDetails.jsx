@@ -66,14 +66,14 @@ const DriverDetails = ({ driverId, update }) => {
 
         {/* Body */}
         <div className="flex space-y-2 border-b pb-3">
-          <div className="flex-1 flex-col space-y-2 text-left text-xl text-white font-b uppercase">
+          <div className="flex-1 flex-col space-y-2 text-left text-xl text-white">
             {drivers.length > 0 ? (
               <>
-                <h2 className="">
+                <h2 className="font-bold text-2xl uppercase">
                   {drivers[0].forename + " " + drivers[0].surname}
                 </h2>
                 <p className="">DOB: {formatDate(drivers[0].dob)}</p>
-                <p className="">AGE: {calculateAge(drivers[0].dob)}</p>
+                <p className="">Age: {calculateAge(drivers[0].dob)}</p>
                 <p className="">Nationality: {drivers[0].nationality}</p>
                 <a
                   href={drivers[0].url}

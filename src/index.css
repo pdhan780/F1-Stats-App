@@ -32,6 +32,15 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234d4d4d' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+.driver_photo_bg {
+  background-color: #15151e;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23999999' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.constructor_photo_bg {
+  background-color: #ffffff;
+  background-image: url("src/assets/plus-x1.png");}
+
 .circuit-details-line {
   position: relative; /* Ensure the parent is positioned */
 }
@@ -101,7 +110,6 @@ body {
   border-bottom-right-radius: 20px;
   pointer-events: none; /* ensure the pseudo-element is not interactive */
 }
-
 
 .favourites-line {
   position: relative; /* Ensure the parent is positioned */
