@@ -7,7 +7,7 @@ import {
 import DriverDetails from "../../Modals/DriverDetails";
 import { useState } from "react";
 
-const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo,driverId }) => {
+const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, driverId }) => {
 
 
   // State to manage the visibility of the modal
