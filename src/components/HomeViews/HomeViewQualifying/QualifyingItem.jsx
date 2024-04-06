@@ -7,12 +7,8 @@ import {
 import DriverDetails from "../../Modals/DriverDetails";
 import { useState } from "react";
 
-const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo }) => {
-  const [driver1, setDriver] = useState({
-    name: "Lewis Hamilton",
-    dob: "January 7, 1985",
-    age: 36,
-  });
+const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo,driverId }) => {
+
 
   // State to manage the visibility of the modal
   const [isDriverModalOpen, setIsDriverModalOpen] = useState(false);
@@ -38,7 +34,7 @@ const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo }) 
       <span className="w-1/6">{Q3 || "-"}</span>
 
       {isDriverModalOpen && (
-        <DriverDetails driver={driver1} update={toggleDriverModal} />
+        <DriverDetails driverId={driverId} update={toggleDriverModal} />
       )}
     </li>
   );

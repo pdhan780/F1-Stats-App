@@ -23,6 +23,7 @@ const QualifyingList = ({qualifying}) => {
             Q2={qualifying.q2}
             Q3={qualifying.q3}
             driver_photo={qualifying.drivers.driver_photo}
+            driverId ={qualifying.drivers.driverId}
           />
         ))}          </List>
         </div>

@@ -12,7 +12,7 @@ const HomeViewResultsPage = ({ selectedRace }) => {
       let { data, error, status } = await supabase
         .from("qualifying")
         .select(
-          `qualifyId, number, position, q1, q2, q3, drivers!inner (driverRef, code, forename, surname, driver_photo), races!inner (name, round, year, date), constructors!inner (name, constructorRef, nationality)`
+          `qualifyId, number, position, q1, q2, q3, drivers!inner (driverId,driverRef, code, forename, surname, driver_photo), races!inner (name, round, year, date), constructors!inner (name, constructorRef, nationality)`
         )
         .eq("raceId", selectedRace)
         .order("position", { ascending: true });
@@ -23,6 +23,7 @@ const HomeViewResultsPage = ({ selectedRace }) => {
 
       if (data) {
         setResults(data);
+        console.log(data)
       }
     } catch (error) {
       console.error("error", error.message);
