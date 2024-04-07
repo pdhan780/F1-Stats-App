@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../../SupaBase/supabaseClient";
 import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";
 import HomeViewResultsBar from "./HomeViewResultsBar/HomeViewResultsBar";
-import { Home } from "@mui/icons-material";
+import HomeViewResults from "./HomeViewResults/HomeViewResults";
 
 const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
   const [results, setResults] = useState([]);
@@ -50,13 +50,18 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
         <h1 className="font-bold text-white text-2xl font-f1 text-center p-4">
           RESULTS
         </h1>
-      </div>{" "}
+      </div>
       <div>
         <HomeViewResultsBar selectedRace={selectedRace}/>
       </div>
       <div className="flex">
         <div className="flex-1">
+<<<<<<< HEAD
           <HomeViewQualifying race={results} onDriverDetailClick={handleDriverItemClick} />
+=======
+          {/*<HomeViewQualifying race={results} />*/}
+          <HomeViewResults selectedRace={selectedRace} />
+>>>>>>> 826dfcf1d7df77e8b49c96d198ccda89e88b7957
         </div>
       </div>
     </div>

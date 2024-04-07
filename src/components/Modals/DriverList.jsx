@@ -9,10 +9,16 @@ import {
   import DriverItem from './DriverItem';
 
   // Parent List component for Drivers
+<<<<<<< HEAD
 const DriverList = ({driverInfo}) => {
 console.log(driverInfo);
 
   
+=======
+const DriverList = ({test}) => {
+  
+  console.log(test);
+>>>>>>> 826dfcf1d7df77e8b49c96d198ccda89e88b7957
     return (
       <Card className="w-1/3 p-2 bg-white border-r-4 border-t-4 border-b-4 border-f1-gray hover:border-candy-apple rounded-br-xl rounded-tr-xl transition ease-in-out delay-25">
         <h6 className="text-f1-black font-f1 text-xl border-b-2 border-f1-black">DRIVERS</h6>
