@@ -25,6 +25,14 @@ const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, dr
     // For example, update state with the selected driver
     setSelectedDriver(name,driverProfile);
   };
+  const handleAddToFavoritesCon = (constructor) => {
+    console.log("Adding to favorites with QITEM:", constructor);
+    // You can perform any additional actions here
+    // For example, update state with the selected driver
+    setSelectedConstructor(constructor)
+  };
+
+
 
   return (
     <li className="flex items-left text-center p-3">

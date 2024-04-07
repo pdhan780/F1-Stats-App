@@ -24,6 +24,14 @@ const HomeViewPage = () => {
     console.log("Data lifted to HomeViewPage component!");
   };
   
+     // Callback function to receive data from HomeViewResultsPage
+     const handleConstructorItemClick = (constructor) => {
+      // Push the new selected driver to the array
+      setSelectedConstructor([...selectedConstructor, { constructor}]);
+      console.log("Results clicked for constructor",constructor);
+      console.log("Data lifted to HomeViewPage component!");
+    };
+  
 
   return (
     <div className="flex flex-col bg-white min-h-screen">

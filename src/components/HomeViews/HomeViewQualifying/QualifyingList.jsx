@@ -39,6 +39,7 @@ const QualifyingList = ({ qualifying }) => {
             driverId={qualifying.drivers.driverId}
             constructorId={qualifying.constructors.constructorId}
             setSelectedDriver={setSelectedDriver}
+            setSelectedConstructor={setSelectedConstructor}
           />
 <<<<<<< HEAD
         ))}</List>

@@ -44,6 +44,13 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
     console.log("Data lifted to HomeViewResults component!");
   };
 
+  const handleConstructorItemClick = (constructor) => {
+    // Do something with the clicked race name, such as sending it to the parent
+    onConstructorItemClick(constructor)
+    console.log("Results clicked for race:", constructor);
+    console.log("Data lifted to HomeViewResults component!");
+  };
+
   return (
     <div className="border-r-8 border-b-8 border-t-8 border-f1-black rounded-br-3xl rounded-tr-3xl flex-col p-1.5">
       <div className="bg-candy-apple flex p-4 justify-center">

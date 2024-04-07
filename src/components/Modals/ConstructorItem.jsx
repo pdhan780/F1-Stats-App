@@ -8,7 +8,7 @@ import {
     Typography,
   } from "@material-tailwind/react";
 
-const ConstructorItem = ({}) => {
+const ConstructorItem = ({name}) => {
   return (
     <ListItem className='mt-1 mb-1'>
       <ListItemPrefix>
@@ -16,7 +16,7 @@ const ConstructorItem = ({}) => {
       </ListItemPrefix>
       <div>
         <Typography className="pl-2 font-bold flex-1 text-f1-black" variant="h6" color="blue-gray">
-          Red Bull Racing
+          {name}
         </Typography>
       </div>
     </ListItem>
