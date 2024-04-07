@@ -4,16 +4,21 @@ import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";
 import HomeViewResultsBar from "./HomeViewResultsBar/HomeViewResultsBar";
 import HomeViewResults from "./HomeViewResults/HomeViewResults";
 
-const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemClick,onCircuitItemClick}) => {
+const HomeViewResultsPage = ({
+  selectedRace,
+  onDriverItemClick,
+  onConstructorItemClick,
+  onCircuitItemClick,
+}) => {
   const [results, setResults] = useState([]);
-  const [currentView, setCurrentView] = useState('qualifying');
+  const [currentView, setCurrentView] = useState("qualifying");
 
   const handleQualifyingClick = () => {
-    setCurrentView('qualifying');
+    setCurrentView("qualifying");
   };
 
   const handleResultsClick = () => {
-    setCurrentView('results');
+    setCurrentView("results");
   };
 
   async function fetchResults() {
@@ -32,7 +37,7 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
 
       if (data) {
         setResults(data);
-        console.log(data)
+        console.log(data);
       }
     } catch (error) {
       console.error("error", error.message);
@@ -44,27 +49,17 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
       fetchResults();
     }
   }, [selectedRace]);
-  
-  // Define a function to handle race item click
-  const handleDriverItemClick = (name,driver_photo) => {
-    // Do something with the clicked race name, such as sending it to the parent
-    onDriverItemClick(name,driver_photo)
-    console.log("Results clicked for race:", name,driver_photo);
-    console.log("Data lifted to HomeViewResults component!");
+
+  const handleDriverItemClick = (name, driver_photo) => {
+    onDriverItemClick(name, driver_photo);
   };
 
-  const handleConstructorItemClick = (constructor,constructor_profile) => {
-    // Do something with the clicked race name, such as sending it to the parent
-    onConstructorItemClick(constructor,constructor_profile)
-    console.log("Results clicked for race:", constructor,constructor_profile);
-    console.log("Data lifted to HomeViewResults component!");
+  const handleConstructorItemClick = (constructor, constructor_profile) => {
+    onConstructorItemClick(constructor, constructor_profile);
   };
 
-  const handleCircuitItemClick = (circuitName,circuitProfile) => {
-    // Do something with the clicked race name, such as sending it to the parent
-    onCircuitItemClick(circuitName,circuitProfile)
-    console.log("Results clicked for race:", circuitName,circuitProfile);
-    console.log("Data lifted to HomeViewResults component!");
+  const handleCircuitItemClick = (circuitName, circuitProfile) => {
+    onCircuitItemClick(circuitName, circuitProfile);
   };
 
   return (
@@ -75,15 +70,29 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
         </h1>
       </div>
       <div>
-        <HomeViewResultsBar selectedRace={selectedRace} onQualifyingClick={handleQualifyingClick} onResultsClick={handleResultsClick} onCircuitDetailClick=
-        {handleCircuitItemClick}/>
+        <HomeViewResultsBar
+          selectedRace={selectedRace}
+          onQualifyingClick={handleQualifyingClick}
+          onResultsClick={handleResultsClick}
+          onCircuitDetailClick={handleCircuitItemClick}
+        />
       </div>
       <div className="flex">
         <div className="flex-1">
-        {currentView === 'qualifying' ? (
-          <HomeViewQualifying selectedRace={results} updateOrder={setResults} onDriverDetailClick={handleDriverItemClick} onConstructorDetailClick={handleConstructorItemClick}/>
-        ) : (<HomeViewResults selectedRace={selectedRace}/>
-        )}
+          {currentView === "qualifying" ? (
+            <HomeViewQualifying
+              selectedRace={results}
+              updateOrder={setResults}
+              onDriverDetailClick={handleDriverItemClick}
+              onConstructorDetailClick={handleConstructorItemClick}
+            />
+          ) : (
+            <HomeViewResults
+              selectedRace={selectedRace}
+              onDriverDetailClick={handleDriverItemClick}
+              onConstructorDetailClick={handleConstructorItemClick}
+            />
+          )}
         </div>
       </div>
     </div>

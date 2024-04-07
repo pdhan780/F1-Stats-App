@@ -7,6 +7,8 @@ import { supabase } from "../../SupaBase/supabaseClient";
 const DriverDetails = ({ driverId, update, name, driverProfile, addToFavorites }) => {
   const [drivers, setDrivers] = useState([]);
 
+  console.log(driverId, name, driverProfile)
+
   async function fetchResults() {
     try {
       let { data, error, status } = await supabase

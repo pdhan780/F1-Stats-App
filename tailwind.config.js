@@ -6,7 +6,8 @@ export default {
     extend: {
       maxHeight: {
         'custom1': '42rem',
-        'custom2': '48rem',
+        'custom2': '54rem',
+        'custom3': '60rem',
       },
       colors: {
         "candy-apple": "#FF1801",

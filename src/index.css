@@ -132,7 +132,7 @@ body {
   content: "";
   position: absolute;
   right: 5px;
-  top: calc(100% - 27rem);
+  top: 32px;
   width: calc(100% - 1.6rem); /* or the width of the curve */
   height: calc(100% - 2.6rem); /* or the height of the curve */
   border-top: 8px solid red; /* the line */

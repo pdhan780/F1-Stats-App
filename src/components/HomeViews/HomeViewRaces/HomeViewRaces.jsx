@@ -28,12 +28,8 @@ const HomeViewRaces = ({ season, onRaceItemClick }) => {
     }
   }
 
-  // Define a function to handle race item click
   const handleRaceItemClick = (name) => {
-    // Do something with the clicked race name, such as sending it to the parent
     onRaceItemClick(name)
-    console.log("Results clicked for race:", name);
-    console.log("Data lifted to HomeViewRaces component!");
   };
 
   const toggleRaceOrder = () => {
