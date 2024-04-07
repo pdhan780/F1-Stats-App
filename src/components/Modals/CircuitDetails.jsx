@@ -1,12 +1,43 @@
 // IMPLEMENT URL and replace with actual circuit images once we have them
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CloseButton from "./CloseButton";
 import AddFavoritesButton from "./AddFavoritesButton";
+import { supabase } from "../../SupaBase/supabaseClient";
 
-const CircuitDetails = ({ circuit, update }) => {
+const CircuitDetails = ({ circuitId, update }) => {
+  console.log("Circuit ID:", circuitId);
+  const [circuit, setCircuit] = useState([]);
+
+  async function fetchResults() {
+    try {
+      let { data, error, status } = await supabase
+        .from("circuits")
+        .select(`name,country,location,url`)
+        .eq("circuitId", circuitId);
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setCircuit(data);
+        console.log(data);
+      }
+    } catch (error) {
+      console.error("error", error.message);
+    }
+  }
+
+  useEffect(() => {
+    if (circuit) {
+      fetchResults();
+    }
+  }, []);
+
+  console.log("Circuit:", circuit);
   return (
     // Backdrop
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
       {/* Modal Container */}
       <div className="bg-f1-black rounded-lg shadow-2xl p-6 flex flex-col circuit-details-line animate-slidetop">
         {/* Header */}
@@ -19,18 +50,24 @@ const CircuitDetails = ({ circuit, update }) => {
         {/* Body */}
         <div className="flex space-y-2 border-b pb-3">
           <div className="flex-1 flex-col space-y-2">
-            <h2 className="text-xl text-white font-f1 font-b uppercase">
-              {circuit.name}
-            </h2>
-            <p className="text-white font-f1 font-b uppercase">
-              {circuit.location}
-            </p>
-            <p className="text-white mb-4 font-f1 font-b uppercase">
-              {circuit.country}
-            </p>
-            <p className="text-white mb-4 font-f1 font-b uppercase">
-              Circuit URL
-            </p>
+            {circuit.length > 0 ? (
+              <>
+                <h2 className="text-xl text-white font-f1 font-b uppercase">
+                  {circuit[0].name}
+                </h2>
+                <p className="text-white font-f1 font-b uppercase">
+                  {circuit[0].location}
+                </p>
+                <p className="text-white mb-4 font-f1 font-b uppercase">
+                  {circuit[0].country}
+                </p>
+                <p className="text-white mb-4 font-f1 font-b uppercase">
+                  Circuit URL
+                </p>
+              </>
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
           <div className="flex flex-col space-y-2 items-center justify-between">
             <CloseButton update={update} />

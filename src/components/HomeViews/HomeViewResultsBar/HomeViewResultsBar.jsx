@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../SupaBase/supabaseClient";
+import CircuitDetails from "../../Modals/CircuitDetails";
 import "font-awesome/css/font-awesome.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -10,6 +11,11 @@ const HomeViewResultsBar = ({
 }) => {
   console.log("Selected Race:", selectedRace);
   const [results, setResults] = useState([]);
+  const [isCircuitModalOpen, setIsCircuitModalOpen] = useState(false);
+
+  const toggleCircuitModal = () => {
+    setIsCircuitModalOpen(!isCircuitModalOpen);
+  };
 
   async function fetchResults() {
     try {
@@ -56,9 +62,9 @@ const HomeViewResultsBar = ({
       <p className="flex-grow  py-2">
         {results.length > 0 ? formatDate(results[0].date) : "No Results"}
       </p>
-      <p className="flex-grow  py-2">
+      <button onClick={toggleCircuitModal} className="flex-grow  py-2">
         {results.length > 0 ? results[0].circuits.name : "No Results"}
-      </p>
+      </button>
       <a
         href={results.length > 0 ? results[0].url : ""}
         target="_blank"
@@ -77,6 +83,9 @@ const HomeViewResultsBar = ({
       <button onClick={onResultsClick} className="flex-grow py-2 transition ease-in-out delay-25 hover:bg-f1-black hover:text-white focus:outline-none">
         <i className="fa-solid fa-ranking-star"></i> Results
       </button>
+      {isCircuitModalOpen && (
+        <CircuitDetails circuitId={results[0].circuits.circuitId} update={toggleCircuitModal} />
+      )}
     </div>
   );
 };

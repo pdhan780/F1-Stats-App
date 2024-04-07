@@ -4,7 +4,7 @@ import CloseButton from "./CloseButton";
 import AddFavoritesButton from "./AddFavoritesButton";
 import { supabase } from "../../SupaBase/supabaseClient";
 
-const DriverDetails = ({ driverId, update,name, driverProfile, addToFavorites }) => {
+const DriverDetails = ({ driverId, update, name, driverProfile, addToFavorites }) => {
   const [drivers, setDrivers] = useState([]);
 
   async function fetchResults() {
