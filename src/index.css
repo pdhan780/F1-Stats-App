@@ -61,8 +61,8 @@ body {
 .circuit-details-line::after {
   content: "";
   position: absolute;
-  right: calc(100% - 38.5rem);
-  top: 8.5%;
+  right: 5px;
+  top: 35px;
   width: calc(100% - 17rem); /* or the width of the curve */
   height: calc(100% - 3.7rem); /* or the height of the curve */
   border-top: 8px solid red; /* the line */

@@ -12,7 +12,7 @@ const CircuitDetails = ({ circuitId, update }) => {
     try {
       let { data, error, status } = await supabase
         .from("circuits")
-        .select(`name,country,location,url`)
+        .select(`name,country,location, url, circuit_profile`)
         .eq("circuitId", circuitId);
 
       if (error && status !== 406) {
@@ -48,22 +48,31 @@ const CircuitDetails = ({ circuitId, update }) => {
         </div>
 
         {/* Body */}
-        <div className="flex space-y-2 border-b pb-3">
-          <div className="flex-1 flex-col space-y-2">
+        <div className="flex space-y-2 border-b pb-3 space-x-4">
+          <div className="flex-1 flex-col space-y-2 text-left text-xl text-white pr-4">
             {circuit.length > 0 ? (
               <>
-                <h2 className="text-xl text-white font-f1 font-b uppercase">
+                <h2 className="font-bold text-2xl uppercase">
                   {circuit[0].name}
                 </h2>
-                <p className="text-white font-f1 font-b uppercase">
-                  {circuit[0].location}
+                <p>
+                  Location: {circuit[0].location}
                 </p>
-                <p className="text-white mb-4 font-f1 font-b uppercase">
-                  {circuit[0].country}
+                <p>
+                  Country: {circuit[0].country}
                 </p>
-                <p className="text-white mb-4 font-f1 font-b uppercase">
-                  Circuit URL
-                </p>
+                <a
+                  href={circuit[0].url}
+                  target="_blank"
+                  className="pt-6 hover:underline hover:decoration-candy-apple"
+                >
+                  More Info
+                  <img
+                    src="src/assets/side-chevron.png"
+                    alt="Side Arrow"
+                    className="h-4 pl-1 pb-1 inline-block"
+                  />
+                </a>
               </>
             ) : (
               <p>Loading...</p>
@@ -82,16 +91,22 @@ const CircuitDetails = ({ circuitId, update }) => {
         </div>
         {/* Replace these images with circuit images once we have them */}
         <div className="flex justify-around space-x-2 mt-4 ">
-          <img
-            src="https://media.formula1.com/image/upload/f_auto/q_auto/v1677245035/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Miami%20carbon.png.transform/3col/image.png"
-            alt="Circuit placeholder"
-            className="h-32 p-4 rounded-lg border-white border"
-          />
-          <img
-            src="src/assets/f1-default-share.png"
-            alt="Map placeholder"
-            className="h-32 p-4 rounded-lg border-white border"
-          />
+          {circuit.length > 0 ? (
+            <>
+              <img
+                src={circuit[0].circuit_profile}
+                alt="Circuit placeholder"
+                className="h-64 rounded-lg border-white border constructor_photo_bg"
+              />
+              <img
+                src="src/assets/f1-default-share.png"
+                alt="Map placeholder"
+                className="h-32 p-4 rounded-lg border-white border"
+              />
+            </>
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
     </div>
