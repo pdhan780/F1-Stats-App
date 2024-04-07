@@ -6,6 +6,8 @@ import CloseButton from './CloseButton';
 
 function Favorites({ update,updateEmpty,favoritesEmpty }) {
   // Use React state to manage the empty state of the favorites container
+  const test = ["max", "lewis"];
+  console.log(test);
   
 
   return (
@@ -22,7 +24,7 @@ function Favorites({ update,updateEmpty,favoritesEmpty }) {
         {!favoritesEmpty && (
           <div className="flex justify-around mt-4 space-x-4">
             {/* Drivers List */}
-            <DriverList />
+            <DriverList test={test} />
 
             {/* Constructors List */}
             <ConstructorList />

@@ -33,8 +33,21 @@ body {
 }
 
 .driver_photo_bg {
+  background-color: #23232b;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23999999' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.result-card {
+  height: 80px;
+  position: relative;
   background-color: #15151e;
-  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23999999' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.winner_photo_bg {
+  background-color: #15151e;
+  background-image: url("src/assets/white-stripe.png");
 }
 
 .constructor_photo_bg {
