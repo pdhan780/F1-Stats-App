@@ -4,8 +4,9 @@ import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";
 import HomeViewResultsBar from "./HomeViewResultsBar/HomeViewResultsBar";
 import { Home } from "@mui/icons-material";
 
-const HomeViewResultsPage = ({ selectedRace }) => {
+const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
   const [results, setResults] = useState([]);
+
 
   async function fetchResults() {
     try {
@@ -35,6 +36,13 @@ const HomeViewResultsPage = ({ selectedRace }) => {
       fetchResults();
     }
   }, [selectedRace]);
+  // Define a function to handle race item click
+  const handleDriverItemClick = (name,driver_photo) => {
+    // Do something with the clicked race name, such as sending it to the parent
+    onDriverItemClick(name,driver_photo)
+    console.log("Results clicked for race:", name,driver_photo);
+    console.log("Data lifted to HomeViewResults component!");
+  };
 
   return (
     <div className="border-r-8 border-b-8 border-t-8 border-f1-black rounded-br-3xl rounded-tr-3xl flex-col p-1.5">
@@ -48,7 +56,7 @@ const HomeViewResultsPage = ({ selectedRace }) => {
       </div>
       <div className="flex">
         <div className="flex-1">
-          <HomeViewQualifying race={results} />
+          <HomeViewQualifying race={results} onDriverDetailClick={handleDriverItemClick} />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import CloseButton from "./CloseButton";
 import AddFavoritesButton from "./AddFavoritesButton";
 import { supabase } from "../../SupaBase/supabaseClient";
 
-const DriverDetails = ({ driverId, update }) => {
+const DriverDetails = ({ driverId, update,name, driverProfile, addToFavorites }) => {
   const [drivers, setDrivers] = useState([]);
 
   async function fetchResults() {
@@ -94,7 +94,9 @@ const DriverDetails = ({ driverId, update }) => {
           </div>
           <div className="flex flex-col space-y-4 items-center">
             <CloseButton update={update} />
-            <AddFavoritesButton />
+            <AddFavoritesButton name={name}
+              driverProfile={driverProfile}
+              addToFavorites={addToFavorites}/>
           </div>
         </div>
         {/* Replace these images with circuit images once we have them */}

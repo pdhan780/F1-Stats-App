@@ -4,9 +4,8 @@ import ConstructorList from './ConstructorList';
 import CircuitList from './CircuitList';
 import CloseButton from './CloseButton';
 
-function Favorites({ update,updateEmpty,favoritesEmpty }) {
-  // Use React state to manage the empty state of the favorites container
-  
+function Favorites({ update,updateEmpty,favoritesEmpty,driverInfo }) {
+  console.log(driverInfo)
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
@@ -22,7 +21,8 @@ function Favorites({ update,updateEmpty,favoritesEmpty }) {
         {!favoritesEmpty && (
           <div className="flex justify-around mt-4 space-x-4">
             {/* Drivers List */}
-            <DriverList />
+            
+            <DriverList driverInfo={driverInfo}/> 
 
             {/* Constructors List */}
             <ConstructorList />

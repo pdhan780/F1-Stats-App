@@ -8,7 +8,7 @@ import DriverDetails from "../../Modals/DriverDetails";
 import ConstructorDetails from "../../Modals/ConstructorDetails";
 import { useState } from "react";
 
-const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, driverId, constructorId }) => {
+const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, driverId, constructorId,setSelectedDriver }) => {
   const [isDriverModalOpen, setIsDriverModalOpen] = useState(false);
   const [isConstructorModalOpen, setIsConstructorModalOpen] = useState(false);
 
@@ -19,6 +19,12 @@ const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, dr
   const toggleConstructorModal = () => {
     setIsConstructorModalOpen(!isConstructorModalOpen);
   }
+  const handleAddToFavorites = (name, driverProfile) => {
+    console.log("Adding to favorites with QITEM:", name, driverProfile);
+    // You can perform any additional actions here
+    // For example, update state with the selected driver
+    setSelectedDriver(name,driverProfile);
+  };
 
   return (
     <li className="flex items-left text-center p-3">
@@ -39,7 +45,9 @@ const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, dr
       <span className="w-1/6">{Q3 || "-"}</span>
 
       {isDriverModalOpen && (
-        <DriverDetails driverId={driverId} update={toggleDriverModal} />
+        <DriverDetails driverId={driverId} update={toggleDriverModal} name={driver}
+        driverProfile={driver_photo}
+        addToFavorites={handleAddToFavorites}/>
       )}
             {isConstructorModalOpen && (
         <ConstructorDetails constructorId={constructorId} update={toggleConstructorModal} />
