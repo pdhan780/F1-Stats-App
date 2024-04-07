@@ -4,6 +4,7 @@ import HomeViewRaceList from "./HomeViewRaceList";
 
 const HomeViewRaces = ({ season, onRaceItemClick }) => {
   const [races, setRaces] = useState([]);
+  const [isAscending, setIsAscending] = useState(true);
 
   useEffect(() => {
     if (season) {
@@ -35,6 +36,11 @@ const HomeViewRaces = ({ season, onRaceItemClick }) => {
     console.log("Data lifted to HomeViewRaces component!");
   };
 
+  const toggleRaceOrder = () => {
+    setRaces([...races].reverse());
+    setIsAscending(!isAscending);
+  };
+
   return (
     <div className="border-r-8 border-b-8 border-t-8 border-f1-black rounded-br-3xl rounded-tr-3xl flex-col p-1.5">
       <div className="test flex p-4 justify-center">
@@ -42,8 +48,10 @@ const HomeViewRaces = ({ season, onRaceItemClick }) => {
           {season} RACES
         </h1>
       </div>
-      <div className="flex space-x-10 border-b-2 border-f1-black pt-4">
-        <h1 className="flex-1 font-f1 font-bold ">ROUND</h1>
+      <div className="flex space-x-10 border-b-2 border-f1-black pt-4">        
+        <button onClick={toggleRaceOrder} className="flex-1 font-f1 font-bold hover:text-candy-apple">
+    ROUND {isAscending ? '▲' : '▼'}
+  </button>
         <h1 className="flex-1 font-f1 font-bold ">CIRCUIT</h1>
         <h1 className="flex-1"></h1>
         <h1 className="flex-1"></h1>

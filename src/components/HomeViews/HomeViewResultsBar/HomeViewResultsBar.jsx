@@ -62,7 +62,7 @@ const HomeViewResultsBar = ({
       <p className="flex-grow  py-2">
         {results.length > 0 ? formatDate(results[0].date) : "No Results"}
       </p>
-      <button onClick={toggleCircuitModal} className="flex-grow  py-2">
+      <button onClick={toggleCircuitModal} className="flex-grow py-2 hover:text-candy-apple">
         {results.length > 0 ? results[0].circuits.name : "No Results"}
       </button>
       <a

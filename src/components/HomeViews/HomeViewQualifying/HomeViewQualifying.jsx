@@ -1,7 +1,10 @@
+import React, { useState, useEffect } from "react";
 import QualifyingList from "./QualifyingList";
 
-const HomeViewQualifying = ({ race,onDriverDetailClick,onConstructorDetailClick }) => {
-    // Define a function to handle race item click
+const HomeViewQualifying = ({ selectedRace, updateOrder, onDriverDetailClick, onConstructorDetailClick }) => {
+  const [isAscending, setIsAscending] = useState(true);
+
+  // Define a function to handle race item click
     const handleDriverItemClick = (name,driver_photo) => {
       // Do something with the clicked race name, such as sending it to the parent
       onDriverDetailClick(name,driver_photo)
@@ -15,6 +18,12 @@ const HomeViewQualifying = ({ race,onDriverDetailClick,onConstructorDetailClick 
       console.log("Results clicked for constructor detail HOMEVIEWQUAL:", constructor,constructor_profile);
       console.log("Data lifted to HomeViewQual component!");
     };
+
+    const togglePosOrder = () => {
+      updateOrder([...selectedRace].reverse());
+      setIsAscending(!isAscending);
+    };
+
   return (
     <div className=" border-t-8 border-f1-black flex-col ">
       <div className="bg-f1-black flex justify-center">
@@ -23,14 +32,14 @@ const HomeViewQualifying = ({ race,onDriverDetailClick,onConstructorDetailClick 
         </h1>
       </div>
       <div className="flex text-center border-b-2 border-f1-black pt-4 pr-4 font-f1 font-bold">
-        <h1 className="w-1/12 text-left">POS</h1>
+      <button onClick={togglePosOrder} className="w-1/12 text-left hover:text-candy-apple">POS {isAscending ? '▲' : '▼'}</button>
         <h1 className="w-1/3"></h1>
         <h1 className="w-1/6"></h1>
         <h1 className="w-1/6">Q1</h1>
         <h1 className="w-1/6">Q2</h1>
         <h1 className="w-1/6">Q3</h1>
       </div>
-      <QualifyingList qualifying={race} setSelectedDriver={handleDriverItemClick} setSelectedConstructor={handleConstructorItemClick} />
+      <QualifyingList qualifying={selectedRace} setSelectedDriver={handleDriverItemClick} setSelectedConstructor={handleConstructorItemClick} />
     </div>
   );
 };

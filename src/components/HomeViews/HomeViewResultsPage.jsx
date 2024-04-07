@@ -72,8 +72,10 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
       </div>
       <div className="flex">
         <div className="flex-1">
-          <HomeViewQualifying race={results} onDriverDetailClick={handleDriverItemClick} onConstructorDetailClick={handleConstructorItemClick} /> 
-         {/*<HomeViewResults selectedRace={selectedRace} /> */}
+        {currentView === 'qualifying' ? (
+          <HomeViewQualifying selectedRace={results} updateOrder={setResults} onDriverDetailClick={handleDriverItemClick} onConstructorDetailClick={handleConstructorItemClick}/>
+        ) : (<HomeViewResults selectedRace={selectedRace}/>
+        )}
         </div>
       </div>
     </div>
