@@ -4,7 +4,7 @@ import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";
 import HomeViewResultsBar from "./HomeViewResultsBar/HomeViewResultsBar";
 import HomeViewResults from "./HomeViewResults/HomeViewResults";
 
-const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemClick}) => {
+const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemClick,onCircuitItemClick}) => {
   const [results, setResults] = useState([]);
   const [currentView, setCurrentView] = useState('qualifying');
 

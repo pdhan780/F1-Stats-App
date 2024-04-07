@@ -4,9 +4,10 @@ import ConstructorList from './ConstructorList';
 import CircuitList from './CircuitList';
 import CloseButton from './CloseButton';
 
-function Favorites({ update,driverInfo,constructorInfo,onEmptyFavorites }) {
+function Favorites({ update,driverInfo,constructorInfo,circuitInfo,onEmptyFavorites }) {
   console.log(driverInfo)
   console.log(constructorInfo)
+  console.log(circuitInfo)
   const handleEmptyFavorites = () => {
     onEmptyFavorites(); // Call the function to empty favorites
   };
@@ -32,7 +33,7 @@ function Favorites({ update,driverInfo,constructorInfo,onEmptyFavorites }) {
             <ConstructorList constructorInfo={constructorInfo} />
 
             {/* Circuits List */}
-            <CircuitList />
+            <CircuitList circuitInfo={circuitInfo} />
           </div>
         
  

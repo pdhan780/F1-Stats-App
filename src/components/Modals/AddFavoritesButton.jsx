@@ -1,4 +1,4 @@
-const AddFavoritesButton = ({ name, driverProfile,constructor, constructor_profile,addToFavorites }) => {
+const AddFavoritesButton = ({ name, driverProfile,constructor, constructor_profile,circuitName,circuitProfile,addToFavorites }) => {
   const handleAddToFavorites = () => {
     // Lift up data to parent component (QualifyingItem)
     if(name && driverProfile){

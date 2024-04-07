@@ -8,6 +8,7 @@ const HomeViewResultsBar = ({
   selectedRace,
   onQualifyingClick,
   onResultsClick,
+  onCircuitDetailClick
 }) => {
   console.log("Selected Race:", selectedRace);
   const [results, setResults] = useState([]);
@@ -22,7 +23,7 @@ const HomeViewResultsBar = ({
       let { data, error, status } = await supabase
         .from("races")
         .select(
-          `raceId, name, round, year, date, url, circuits!inner (circuitId, name)`
+          `raceId, name, round, year, date, url, circuits!inner (circuitId, name,circuit_profile)`
         )
         .eq("raceId", selectedRace);
 
@@ -52,10 +53,10 @@ const HomeViewResultsBar = ({
   console.log("Results:", results);
 
   const handleAddToFavoritesCir = ( circuitName,circuitProfile) => {
-    console.log("Adding to favorites with ResultsBar Circuit:", constructor,constructor_profile);
+    console.log("Adding to favorites with ResultsBar Circuit:", circuitName,circuitProfile);
     // You can perform any additional actions here
     // For example, update state with the selected driver
-    setSelectedCircuit(circuitName,circuitProfile)
+    onCircuitDetailClick(circuitName,circuitProfile)
   };
 
   return (
@@ -91,7 +92,8 @@ const HomeViewResultsBar = ({
         <i className="fa-solid fa-ranking-star"></i> Results
       </button>
       {isCircuitModalOpen && (
-        <CircuitDetails circuitId={results[0].circuits.circuitId} update={toggleCircuitModal} />
+        <CircuitDetails circuitId={results[0].circuits.circuitId} circuitName={results[0].circuits.name} 
+        circuitProfile ={results[0].circuits.circuit_profile} addToFavorites={handleAddToFavoritesCir} update={toggleCircuitModal} />
       )}
     </div>
   );

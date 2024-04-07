@@ -54,7 +54,7 @@ const HomeViewPage = () => {
 
   return (
     <div className="flex flex-col bg-white min-h-screen">
-      <HomeViewHeader onSeasonSelect={setSelectedSeason} driverInfo ={selectedDriver} constructorInfo ={selectedConstructor} onEmptyFavorites={handleEmptyFavorites}  />
+      <HomeViewHeader onSeasonSelect={setSelectedSeason} driverInfo ={selectedDriver} constructorInfo ={selectedConstructor} circuitInfo ={selectedCircuit}onEmptyFavorites={handleEmptyFavorites}  />
       <div className="flex-grow flex justify-center p-4 space-x-8">
         <div className="flex">
           <HomeViewRaces season={selectedSeason} onRaceItemClick={handleRaceItemClick}/>
