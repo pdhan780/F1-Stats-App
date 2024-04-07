@@ -11,6 +11,11 @@ const AddFavoritesButton = ({ name, driverProfile,constructor, constructor_profi
       addToFavorites(constructor,constructor_profile)
     }
 
+    if(circuitName && circuitProfile){
+      console.log("circuit was clicked")
+      addToFavorites(circuitName,circuitProfile)
+    }
+
   };
 
   return (

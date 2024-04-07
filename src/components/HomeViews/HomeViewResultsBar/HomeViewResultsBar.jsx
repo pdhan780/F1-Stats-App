@@ -51,6 +51,13 @@ const HomeViewResultsBar = ({
 
   console.log("Results:", results);
 
+  const handleAddToFavoritesCir = ( circuitName,circuitProfile) => {
+    console.log("Adding to favorites with ResultsBar Circuit:", constructor,constructor_profile);
+    // You can perform any additional actions here
+    // For example, update state with the selected driver
+    setSelectedCircuit(circuitName,circuitProfile)
+  };
+
   return (
     <div className="flex space-x-4 bg-f1-light-gray font-bold text-f1-black">
       <p className="flex-grow  py-2">

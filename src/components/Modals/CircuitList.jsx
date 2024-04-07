@@ -15,10 +15,14 @@ const CircuitList = () => {
       <h6 className="text-f1-black font-f1 text-xl border-b-2 border-f1-black">CIRCUITS</h6>
         <div className="overflow-auto max-h-64 scrollbar">
         <List className="[&>*:nth-child(odd)]:bg-f1-light-gray [&>*:nth-child(even)]:bg-white space-y-2">
-          <CircuitItem/>
-          <CircuitItem/>
-          <CircuitItem/>
-          <CircuitItem/>
+        {circuitInfo.map((circuit, index) => (
+            <ConstructorItem
+              key={index}
+              name={circuit.circuitName}
+              profile = {circuit.circuitProfile}
+            />
+          ))}
+         
         </List>
         </div>
     </Card>

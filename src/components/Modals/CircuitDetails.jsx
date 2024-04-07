@@ -5,7 +5,7 @@ import AddFavoritesButton from "./AddFavoritesButton";
 import { supabase } from "../../SupaBase/supabaseClient";
 import CircuitLeaflet from "./CircuitLeaflet";
 
-const CircuitDetails = ({ circuitId, update }) => {
+const CircuitDetails = ({ circuitId,circuitName,circuitProfile,addToFavorites, update }) => {
   console.log("Circuit ID:", circuitId);
   const [circuit, setCircuit] = useState([]);
 
@@ -81,7 +81,9 @@ const CircuitDetails = ({ circuitId, update }) => {
           </div>
           <div className="flex flex-col space-y-4 items-center">
             <CloseButton update={update} />
-            <AddFavoritesButton />
+            <AddFavoritesButton circuitName={circuitName}
+              circuitProfile={circuitProfile}
+              addToFavorites={addToFavorites}/>
           </div>
         </div>
         {/* Replace these images with circuit images once we have them */}
