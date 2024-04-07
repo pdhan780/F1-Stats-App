@@ -6,7 +6,15 @@ import HomeViewResults from "./HomeViewResults/HomeViewResults";
 
 const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemClick}) => {
   const [results, setResults] = useState([]);
+  const [currentView, setCurrentView] = useState('qualifying');
 
+  const handleQualifyingClick = () => {
+    setCurrentView('qualifying');
+  };
+
+  const handleResultsClick = () => {
+    setCurrentView('results');
+  };
 
   async function fetchResults() {
     try {
@@ -36,6 +44,7 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
       fetchResults();
     }
   }, [selectedRace]);
+  
   // Define a function to handle race item click
   const handleDriverItemClick = (name,driver_photo) => {
     // Do something with the clicked race name, such as sending it to the parent
@@ -59,7 +68,7 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
         </h1>
       </div>
       <div>
-        <HomeViewResultsBar selectedRace={selectedRace}/>
+        <HomeViewResultsBar selectedRace={selectedRace} onQualifyingClick={handleQualifyingClick} onResultsClick={handleResultsClick}/>
       </div>
       <div className="flex">
         <div className="flex-1">

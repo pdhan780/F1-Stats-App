@@ -36,9 +36,9 @@ const QualifyingItem = ({ pos, driver, constructor, constructor_profile,Q1, Q2, 
 
   return (
     <li className="flex items-left text-center p-3">
-      <span className="w-1/6 text-left font-f1 font-bold">{pos}</span>
+      <span className="w-1/12 text-left font-f1 font-bold">{pos}</span>
       <button
-        className="w-1/6 font-bold text-left hover:text-candy-apple"
+        className="w-1/3 font-bold text-left hover:text-candy-apple"
         onClick={toggleDriverModal}
       >
       <Avatar variant="circular" alt="candice" src={driver_photo} className="inline-block mr-2"/>  

@@ -46,11 +46,11 @@ const HomeViewResults = ({ selectedRace }) => {
         <ResultsPodium results={results} />
       </div>
       <div className="flex text-center border-b-2 border-f1-black pt-4 pr-4 font-f1 font-bold">
-        <h1 className="w-1/5 text-left">POS</h1>
-        <h1 className="w-1/5"></h1>
-        <h1 className="w-1/5"></h1>
-        <h1 className="w-1/5">LAPS</h1>
-        <h1 className="w-1/5">PTS</h1>
+        <h1 className="w-1/6 text-left">POS</h1>
+        <h1 className="w-2/6"></h1>
+        <h1 className="w-1/6"></h1>
+        <h1 className="w-1/6">LAPS</h1>
+        <h1 className="w-1/6">PTS</h1>
       </div>
       <ResultsList race={results} />
     </div>

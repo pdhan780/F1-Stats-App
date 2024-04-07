@@ -23,8 +23,8 @@ const HomeViewQualifying = ({ race,onDriverDetailClick,onConstructorDetailClick 
         </h1>
       </div>
       <div className="flex text-center border-b-2 border-f1-black pt-4 pr-4 font-f1 font-bold">
-        <h1 className="w-1/6 text-left">POS</h1>
-        <h1 className="w-1/6"></h1>
+        <h1 className="w-1/12 text-left">POS</h1>
+        <h1 className="w-1/3"></h1>
         <h1 className="w-1/6"></h1>
         <h1 className="w-1/6">Q1</h1>
         <h1 className="w-1/6">Q2</h1>
