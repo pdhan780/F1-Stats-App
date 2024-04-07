@@ -4,7 +4,7 @@ import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";
 import HomeViewResultsBar from "./HomeViewResultsBar/HomeViewResultsBar";
 import HomeViewResults from "./HomeViewResults/HomeViewResults";
 
-const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
+const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemClick}) => {
   const [results, setResults] = useState([]);
 
 
@@ -13,7 +13,7 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
       let { data, error, status } = await supabase
         .from("qualifying")
         .select(
-          `qualifyId, number, position, q1, q2, q3, drivers!inner (driverId, driverRef, code, forename, surname, driver_photo), races!inner (name, round, year, date), constructors!inner (name, constructorId, constructorRef, nationality)`
+          `qualifyId, number, position, q1, q2, q3, drivers!inner (driverId, driverRef, code, forename, surname, driver_photo), races!inner (name, round, year, date), constructors!inner (name,constructor_profile, constructorId, constructorRef, nationality)`
         )
         .eq("raceId", selectedRace)
         .order("position", { ascending: true });
@@ -44,10 +44,10 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
     console.log("Data lifted to HomeViewResults component!");
   };
 
-  const handleConstructorItemClick = (constructor) => {
+  const handleConstructorItemClick = (constructor,constructor_profile) => {
     // Do something with the clicked race name, such as sending it to the parent
-    onConstructorItemClick(constructor)
-    console.log("Results clicked for race:", constructor);
+    onConstructorItemClick(constructor,constructor_profile)
+    console.log("Results clicked for race:", constructor,constructor_profile);
     console.log("Data lifted to HomeViewResults component!");
   };
 
@@ -63,12 +63,8 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick}) => {
       </div>
       <div className="flex">
         <div className="flex-1">
-<<<<<<< HEAD
-          <HomeViewQualifying race={results} onDriverDetailClick={handleDriverItemClick} />
-=======
-          {/*<HomeViewQualifying race={results} />*/}
-          <HomeViewResults selectedRace={selectedRace} />
->>>>>>> 826dfcf1d7df77e8b49c96d198ccda89e88b7957
+          <HomeViewQualifying race={results} onDriverDetailClick={handleDriverItemClick} onConstructorDetailClick={handleConstructorItemClick} /> 
+         {/*<HomeViewResults selectedRace={selectedRace} /> */}
         </div>
       </div>
     </div>

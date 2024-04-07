@@ -8,7 +8,7 @@ import DriverDetails from "../../Modals/DriverDetails";
 import ConstructorDetails from "../../Modals/ConstructorDetails";
 import { useState } from "react";
 
-const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, driverId, constructorId,setSelectedDriver }) => {
+const QualifyingItem = ({ pos, driver, constructor, constructor_profile,Q1, Q2, Q3, driver_photo, driverId, constructorId,setSelectedDriver,setSelectedConstructor }) => {
   const [isDriverModalOpen, setIsDriverModalOpen] = useState(false);
   const [isConstructorModalOpen, setIsConstructorModalOpen] = useState(false);
 
@@ -20,16 +20,16 @@ const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, dr
     setIsConstructorModalOpen(!isConstructorModalOpen);
   }
   const handleAddToFavorites = (name, driverProfile) => {
-    console.log("Adding to favorites with QITEM:", name, driverProfile);
+    console.log("Adding to favorites with QITEM Driver:", name, driverProfile);
     // You can perform any additional actions here
     // For example, update state with the selected driver
     setSelectedDriver(name,driverProfile);
   };
-  const handleAddToFavoritesCon = (constructor) => {
-    console.log("Adding to favorites with QITEM:", constructor);
+  const handleAddToFavoritesCon = (constructor,constructor_profile) => {
+    console.log("Adding to favorites with QITEM Constructor:", constructor,constructor_profile);
     // You can perform any additional actions here
     // For example, update state with the selected driver
-    setSelectedConstructor(constructor)
+    setSelectedConstructor(constructor,constructor_profile)
   };
 
 
@@ -58,7 +58,7 @@ const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, dr
         addToFavorites={handleAddToFavorites}/>
       )}
             {isConstructorModalOpen && (
-        <ConstructorDetails constructorId={constructorId} update={toggleConstructorModal} />
+        <ConstructorDetails constructorId={constructorId} update={toggleConstructorModal} constructor={constructor} constructor_profile={constructor_profile} addToFavorites={handleAddToFavoritesCon} />
       )}
     </li>
   );

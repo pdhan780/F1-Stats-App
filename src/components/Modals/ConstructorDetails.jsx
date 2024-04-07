@@ -4,7 +4,7 @@ import CloseButton from "./CloseButton";
 import AddFavoritesButton from "./AddFavoritesButton";
 import { supabase } from "../../SupaBase/supabaseClient";
 
-const ConstructorDetails = ({ constructorId, update }) => {
+const ConstructorDetails = ({ constructorId, update,constructor,constructor_profile,addToFavorites }) => {
   const [constructors, setConstructors] = useState([]);
 
   async function fetchResults() {
@@ -77,7 +77,7 @@ const ConstructorDetails = ({ constructorId, update }) => {
           </div>
           <div className="flex flex-col space-y-2 items-center justify-between">
             <CloseButton update={update} />
-            <AddFavoritesButton />
+            <AddFavoritesButton constructor={constructor} constructor_profile={constructor_profile} addToFavorites={addToFavorites}/>
           </div>
         </div>
         {/* Replace these images with circuit images once we have them */}

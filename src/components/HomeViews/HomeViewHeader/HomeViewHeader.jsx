@@ -3,8 +3,9 @@ import Favorites from "../../Modals/Favorites";
 import About from "../../Modals/About";
 import SeasonDropdown from "./SeasonDropdown";
 
-const HomeViewHeader = ({ onSeasonSelect,driverInfo }) => {
+const HomeViewHeader = ({ onSeasonSelect,driverInfo,constructorInfo, onEmptyFavorites }) => {
   console.log(driverInfo)
+  console.log(constructorInfo)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
  
@@ -16,12 +17,6 @@ const HomeViewHeader = ({ onSeasonSelect,driverInfo }) => {
     onSeasonSelect(season);
   };
 
-  const [favoritesEmpty, setFavoritesEmpty] = useState(false);
-  // Function to handle emptying favorites
-  const handleEmptyFavorites = () => {
-    // Set the empty state to true
-    setFavoritesEmpty(true);
-  };
 
  
 
@@ -42,7 +37,7 @@ const HomeViewHeader = ({ onSeasonSelect,driverInfo }) => {
           <SeasonDropdown onSeasonSelect={handleSeasonSelect} />
           <button
             onClick={() => setIsModalOpen(true)}
-            disabled={favoritesEmpty}
+            disabled={driverInfo.length === 0 && constructorInfo.length === 0}
             className="transition ease-in-out delay-25 text-white font-f1 hover:bg-f1-black hover:text-white px-3 py-6 focus:outline-none"
           >
             FAVORITES
@@ -57,7 +52,7 @@ const HomeViewHeader = ({ onSeasonSelect,driverInfo }) => {
         <div className="flex"></div>
         <div className="flex"></div>
       </div>
-      {isModalOpen && <Favorites update={toggleModal} updateEmpty = {handleEmptyFavorites} favoritesEmpty = {favoritesEmpty} driverInfo ={driverInfo}/>}
+      {isModalOpen && <Favorites update={toggleModal} driverInfo ={driverInfo} constructorInfo={constructorInfo} onEmptyFavorites={onEmptyFavorites}/>}
       {isAboutOpen && <About update={toggleAbout} />}
     </nav>
   );

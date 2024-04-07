@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import HomeViewHeader from "./HomeViewHeader/HomeViewHeader";
 import HomeViewFooter from "./HomeViewFooter/HomeViewFooter";
 import HomeViewRaces from "./HomeViewRaces/HomeViewRaces";
@@ -8,6 +8,12 @@ const HomeViewPage = () => {
   const [selectedSeason, setSelectedSeason] = useState("2023");
   const [selectedRace, setSelectedRace] = useState(null);
   const [selectedDriver, setSelectedDriver] = useState([]);
+  const [selectedConstructor, setSelectedConstructor] = useState([]);
+
+  const handleEmptyFavorites = () => {
+    setSelectedDriver([]);
+    setSelectedConstructor([]);
+  };
 
   // Callback function to receive data from HomeViewRaces
   const handleRaceItemClick = (raceId) => {
@@ -20,28 +26,30 @@ const HomeViewPage = () => {
   const handleDriverItemClick = (name, driver_photo) => {
     // Push the new selected driver to the array
     setSelectedDriver([...selectedDriver, { name, driver_photo }]);
-    console.log("Results clicked for driver:", name, driver_photo);
+    console.log("Results clicked for driver in HOMEVIEW:", name, driver_photo);
     console.log("Data lifted to HomeViewPage component!");
   };
-  
+
      // Callback function to receive data from HomeViewResultsPage
-     const handleConstructorItemClick = (constructor) => {
+   const handleConstructorItemClick = (constructor,constructor_profile) => {
       // Push the new selected driver to the array
-      setSelectedConstructor([...selectedConstructor, { constructor}]);
-      console.log("Results clicked for constructor",constructor);
+      setSelectedConstructor([...selectedConstructor, { constructor,constructor_profile}]);
+      console.log("Results clicked for constructor IN HOMEVIEW",constructor,constructor_profile);
       console.log("Data lifted to HomeViewPage component!");
     };
-  
+ 
+
+ 
 
   return (
     <div className="flex flex-col bg-white min-h-screen">
-      <HomeViewHeader onSeasonSelect={setSelectedSeason} driverInfo ={selectedDriver}/>
+      <HomeViewHeader onSeasonSelect={setSelectedSeason} driverInfo ={selectedDriver} constructorInfo ={selectedConstructor} onEmptyFavorites={handleEmptyFavorites}  />
       <div className="flex-grow flex justify-center p-4 space-x-8">
         <div className="flex">
           <HomeViewRaces season={selectedSeason} onRaceItemClick={handleRaceItemClick}/>
         </div>
         <div className="flex-1">
-          <HomeViewResultsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} />
+          <HomeViewResultsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} />
         </div>
       </div>
       <HomeViewFooter />
