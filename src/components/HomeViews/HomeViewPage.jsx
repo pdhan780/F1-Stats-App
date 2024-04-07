@@ -9,10 +9,12 @@ const HomeViewPage = () => {
   const [selectedRace, setSelectedRace] = useState(null);
   const [selectedDriver, setSelectedDriver] = useState([]);
   const [selectedConstructor, setSelectedConstructor] = useState([]);
+  const [selectedCircuit, setSelectedCircuit] = useState([]);
 
   const handleEmptyFavorites = () => {
     setSelectedDriver([]);
     setSelectedConstructor([]);
+    setSelectedCircuit([]);
   };
 
   // Callback function to receive data from HomeViewRaces
@@ -37,19 +39,28 @@ const HomeViewPage = () => {
       console.log("Results clicked for constructor IN HOMEVIEW",constructor,constructor_profile);
       console.log("Data lifted to HomeViewPage component!");
     };
+
+    
+     // Callback function to receive data from HomeViewResultsPage
+   const handleCircuitItemClick = (circuitName,circuitProfile) => {
+    // Push the new selected driver to the array
+    setSelectedCircuit([...selectedCircuit, { circuitName,circuitProfile}]);
+    console.log("Results clicked for circuit IN HOMEVIEW",circuitName,circuitProfile);
+    console.log("Data lifted to HomeViewPage component!");
+  };
  
 
  
 
   return (
     <div className="flex flex-col bg-white min-h-screen">
-      <HomeViewHeader onSeasonSelect={setSelectedSeason} driverInfo ={selectedDriver} constructorInfo ={selectedConstructor} onEmptyFavorites={handleEmptyFavorites}  />
+      <HomeViewHeader onSeasonSelect={setSelectedSeason} driverInfo ={selectedDriver} constructorInfo ={selectedConstructor} circuitInfo ={selectedCircuit}onEmptyFavorites={handleEmptyFavorites}  />
       <div className="flex-grow flex justify-center p-4 space-x-8">
         <div className="flex">
           <HomeViewRaces season={selectedSeason} onRaceItemClick={handleRaceItemClick}/>
         </div>
         <div className="flex-1">
-          <HomeViewResultsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} />
+          <HomeViewResultsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} onCircuitItemClick={handleCircuitItemClick}/>
         </div>
       </div>
       <HomeViewFooter />

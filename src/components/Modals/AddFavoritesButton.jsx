@@ -1,4 +1,4 @@
-const AddFavoritesButton = ({ name, driverProfile,constructor, constructor_profile,addToFavorites }) => {
+const AddFavoritesButton = ({ name, driverProfile,constructor, constructor_profile,circuitName,circuitProfile,addToFavorites }) => {
   const handleAddToFavorites = () => {
     // Lift up data to parent component (QualifyingItem)
     if(name && driverProfile){
@@ -9,6 +9,11 @@ const AddFavoritesButton = ({ name, driverProfile,constructor, constructor_profi
     if(constructor && constructor_profile){
       console.log("constructor was clicked!")
       addToFavorites(constructor,constructor_profile)
+    }
+
+    if(circuitName && circuitProfile){
+      console.log("circuit was clicked")
+      addToFavorites(circuitName,circuitProfile)
     }
 
   };

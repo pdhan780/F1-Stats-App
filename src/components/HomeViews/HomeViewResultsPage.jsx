@@ -4,7 +4,7 @@ import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";
 import HomeViewResultsBar from "./HomeViewResultsBar/HomeViewResultsBar";
 import HomeViewResults from "./HomeViewResults/HomeViewResults";
 
-const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemClick}) => {
+const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemClick,onCircuitItemClick}) => {
   const [results, setResults] = useState([]);
   const [currentView, setCurrentView] = useState('qualifying');
 
@@ -60,6 +60,13 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
     console.log("Data lifted to HomeViewResults component!");
   };
 
+  const handleCircuitItemClick = (circuitName,circuitProfile) => {
+    // Do something with the clicked race name, such as sending it to the parent
+    onCircuitItemClick(circuitName,circuitProfile)
+    console.log("Results clicked for race:", circuitName,circuitProfile);
+    console.log("Data lifted to HomeViewResults component!");
+  };
+
   return (
     <div className="border-r-8 border-b-8 border-t-8 border-f1-black rounded-br-3xl rounded-tr-3xl flex-col p-1.5">
       <div className="bg-candy-apple flex p-4 justify-center">
@@ -68,7 +75,8 @@ const HomeViewResultsPage = ({ selectedRace,onDriverItemClick,onConstructorItemC
         </h1>
       </div>
       <div>
-        <HomeViewResultsBar selectedRace={selectedRace} onQualifyingClick={handleQualifyingClick} onResultsClick={handleResultsClick}/>
+        <HomeViewResultsBar selectedRace={selectedRace} onQualifyingClick={handleQualifyingClick} onResultsClick={handleResultsClick} onCircuitDetailClick=
+        {handleCircuitItemClick}/>
       </div>
       <div className="flex">
         <div className="flex-1">
