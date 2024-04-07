@@ -66,7 +66,7 @@ const DriverDetails = ({ driverId, update,name, driverProfile, addToFavorites })
 
         {/* Body */}
         <div className="flex space-y-2 border-b pb-3">
-          <div className="flex-1 flex-col space-y-2 text-left text-xl text-white">
+          <div className="flex-1 flex-col space-y-2 text-left text-xl text-white pr-4">
             {drivers.length > 0 ? (
               <>
                 <h2 className="font-bold text-2xl uppercase">

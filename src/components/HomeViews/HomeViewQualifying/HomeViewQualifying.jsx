@@ -1,6 +1,6 @@
 import QualifyingList from "./QualifyingList";
 
-const HomeViewQualifying = ({ race,onDriverDetailClick }) => {
+const HomeViewQualifying = ({ selectedRace, onDriverDetailClick }) => {
     // Define a function to handle race item click
     const handleDriverItemClick = (name,driver_photo) => {
       // Do something with the clicked race name, such as sending it to the parent
@@ -23,7 +23,7 @@ const HomeViewQualifying = ({ race,onDriverDetailClick }) => {
         <h1 className="w-1/6">Q2</h1>
         <h1 className="w-1/6">Q3</h1>
       </div>
-      <QualifyingList qualifying={race} setSelectedDriver={handleDriverItemClick} />
+      <QualifyingList qualifying={selectedRace} setSelectedDriver={handleDriverItemClick} />
     </div>
   );
 };

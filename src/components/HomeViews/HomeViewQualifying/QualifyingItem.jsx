@@ -8,7 +8,7 @@ import DriverDetails from "../../Modals/DriverDetails";
 import ConstructorDetails from "../../Modals/ConstructorDetails";
 import { useState } from "react";
 
-const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, driverId, constructorId,setSelectedDriver }) => {
+const QualifyingItem = ({ pos, driver, constructor, Q1, Q2, Q3, driver_photo, driverId, constructorId, setSelectedDriver }) => {
   const [isDriverModalOpen, setIsDriverModalOpen] = useState(false);
   const [isConstructorModalOpen, setIsConstructorModalOpen] = useState(false);
 
