@@ -8,6 +8,7 @@ export default {
         'custom1': '42rem',
         'custom2': '54rem',
         'custom3': '60rem',
+        'custom4': '58rem',
       },
       colors: {
         "candy-apple": "#FF1801",

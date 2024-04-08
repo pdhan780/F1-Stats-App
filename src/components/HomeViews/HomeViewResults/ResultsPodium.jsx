@@ -3,7 +3,7 @@ import DriverDetails from "../../Modals/DriverDetails";
 import { useState } from "react";
 
 const ResultsPodium = ({ results, setSelectedDriver }) => {
-  const backgroundHeights = ["h-28", "h-24", "h-20"]; // Heights for 1st, 2nd, and 3rd places
+  const backgroundHeights = ["h-32", "h-24", "h-20"]; // Heights for 1st, 2nd, and 3rd places
   const imageWidth = ["w-28", "w-24"]; // Sizes for 1st and 2nd/3rd places
   const imageHeight = ["h-28", "h-24"]; // Sizes for 1st and 2nd/3rd places
 
@@ -67,7 +67,7 @@ const ResultsPodium = ({ results, setSelectedDriver }) => {
             name={
               results[0].drivers.forename + " " + results[1].drivers.surname
             }
-            driverProfile={results[0].drivers.driver_profile}
+            driverProfile={results[0].drivers.driver_photo}
             addToFavorites={handleAddToFavorites}
           />
         )}
@@ -78,7 +78,7 @@ const ResultsPodium = ({ results, setSelectedDriver }) => {
             name={
               results[1].drivers.forename + " " + results[1].drivers.surname
             }
-            driverProfile={results[1].drivers.driver_profile}
+            driverProfile={results[1].drivers.driver_photo}
             addToFavorites={handleAddToFavorites}
           />
         )}
@@ -89,7 +89,7 @@ const ResultsPodium = ({ results, setSelectedDriver }) => {
             name={
               results[2].drivers.forename + " " + results[2].drivers.surname
             }
-            driverProfile={results[2].drivers.driver_profile}
+            driverProfile={results[2].drivers.driver_photo}
             addToFavorites={handleAddToFavorites}
           />
         )}

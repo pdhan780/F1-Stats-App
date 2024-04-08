@@ -9,24 +9,11 @@ import Favorites from './components/Modals/Favorites';
 import HomeViewPage from './components/HomeViews/HomeViewPage';
 
 function App() {
-  const [circuit, setCircuit] = useState({
-    name: 'Circuit of the Americas',
-    location: 'Austin',
-    country: 'USA'
-  });
-
-  const [driver, setDriver] = useState({
-    name: 'Lewis Hamilton',
-    dob: 'January 7, 1985',
-    age: 36
-  });
-
-  // State to manage the visibility of the modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Function to toggle the modal
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+  
+  const [currentView, setCurrentView] = useState("login");
+  
+  const handleLoginClick = () => {
+    setCurrentView("HomeViewPage");
   };
 
   return (
@@ -43,9 +30,9 @@ function App() {
       {/*isModalOpen && <CircuitDetails circuit={circuit} update={toggleModal}/>*/}
       {/*isModalOpen && <DriverDetails driver={driver} update={toggleModal}/>*/}
       {/*isModalOpen && <ConstructorDetails constructor={constructor} update={toggleModal}/>*/}
-      <HomeViewPage />
-      {/* Uncomment the line below to use the LoginPage */}
-     {/* <LoginPage /> */}
+      {currentView === "login" ? (<LoginPage onLoginClick={handleLoginClick}/>) : (
+        <HomeViewPage />
+      )}
     </div>
   );
 }

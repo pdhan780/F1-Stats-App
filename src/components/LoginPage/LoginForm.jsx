@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoginForm = () => {
+const LoginForm = ({onLoginClick}) => {
   
   return (
       <form className="bg-candy-apple border-black border shadow-md rounded px-8 pt-6 pb-8 mb-4 opacity-50 hover:opacity-100">
@@ -34,6 +34,7 @@ const LoginForm = () => {
         </div>
         <div className="flex items-center justify-between">
           <button
+            onClick={onLoginClick}
             className="bg-f1-black2 hover:bg-f1-dark-gray text-white font-bold py-2 px-4 rounded shadow-xl focus:outline-none focus:shadow-outline"
             type="button"
           >

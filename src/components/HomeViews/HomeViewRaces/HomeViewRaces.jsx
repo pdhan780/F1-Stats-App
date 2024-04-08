@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../../../SupaBase/supabaseClient";
 import HomeViewRaceList from "./HomeViewRaceList";
 
-const HomeViewRaces = ({ season, onRaceItemClick }) => {
+const HomeViewRaces = ({
+  season,
+  onRaceItemClick,
+  onResultsClick,
+  onStandingsClick,
+}) => {
   const [races, setRaces] = useState([]);
   const [isAscending, setIsAscending] = useState(true);
 
@@ -29,7 +34,7 @@ const HomeViewRaces = ({ season, onRaceItemClick }) => {
   }
 
   const handleRaceItemClick = (name) => {
-    onRaceItemClick(name)
+    onRaceItemClick(name);
   };
 
   const toggleRaceOrder = () => {
@@ -44,17 +49,25 @@ const HomeViewRaces = ({ season, onRaceItemClick }) => {
           {season} RACES
         </h1>
       </div>
-      <div className="flex space-x-10 border-b-2 border-f1-black pt-4">        
-        <button onClick={toggleRaceOrder} className="flex-1 font-f1 font-bold hover:text-candy-apple">
-    ROUND {isAscending ? '▲' : '▼'}
-  </button>
+      <div className="flex space-x-10 border-b-2 border-f1-black pt-4">
+        <button
+          onClick={toggleRaceOrder}
+          className="flex-1 font-f1 font-bold hover:text-candy-apple"
+        >
+          ROUND {isAscending ? "▲" : "▼"}
+        </button>
         <h1 className="flex-1 font-f1 font-bold ">CIRCUIT</h1>
         <h1 className="flex-1"></h1>
         <h1 className="flex-1"></h1>
       </div>
       <div className="flex">
         {races.length > 0 ? (
-          <HomeViewRaceList races={races}  onResultsClick={handleRaceItemClick} />
+          <HomeViewRaceList
+            races={races}
+            onRaceClick={handleRaceItemClick}
+            onResultsClick={onResultsClick}
+            onStandingsClick={onStandingsClick}
+          />
         ) : (
           <p>No races to display.</p> // Placeholder text when no races are found
         )}

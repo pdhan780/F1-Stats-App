@@ -15,7 +15,7 @@ const PodiumPlace = ({
   const slashes = getSlashesForPosition(positionOrder);
 
   return (
-    <div className="flex flex-col items-center mx-1 relative hover:-translate-y-2 hover:scale-105 transition ease-in-out delay-25">
+    <div className="flex flex-col mx-1 relative hover:-translate-y-2 hover:scale-105 transition ease-in-out delay-25">
       <div
         className={`winner_photo_bg rounded-t-lg rounded-br-lg absolute bottom-0 ${backgroundHeight} ${imageWidth}`}
       ></div>

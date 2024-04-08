@@ -11,6 +11,15 @@ const HomeViewPage = () => {
   const [selectedDriver, setSelectedDriver] = useState([]);
   const [selectedConstructor, setSelectedConstructor] = useState([]);
   const [selectedCircuit, setSelectedCircuit] = useState([]);
+  const [currentView, setCurrentView] = useState("results");
+
+  const handleResultsClick = () => {
+    setCurrentView("results");
+  };
+
+  const handleStandingsClick = () => {
+    setCurrentView("standings");
+  };
 
   const handleEmptyFavorites = () => {
     setSelectedDriver([]);
@@ -51,22 +60,16 @@ const HomeViewPage = () => {
           <HomeViewRaces
             season={selectedSeason}
             onRaceItemClick={handleRaceItemClick}
+            onResultsClick={handleResultsClick}
+            onStandingsClick={handleStandingsClick}
           />
         </div>
 
         <div className="flex-1">
+          {currentView === "results" ? (
           <HomeViewResultsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} onCircuitItemClick={handleCircuitItemClick}/>
-        </div>
-
-  {/*}
-        <div className="flex-1">
-          <HomeViewStandingsPage
-            selectedRace={selectedRace}
-            onDriverItemClick={handleDriverItemClick}
-            onConstructorItemClick={handleConstructorItemClick}
-            onCircuitItemClick={handleCircuitItemClick}
-          />
-  </div>*/}
+          ) : ( <HomeViewStandingsPage selectedRace={selectedRace} onDriverItemClick={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} onCircuitItemClick={handleCircuitItemClick} />) }
+          </div>
       </div>
       <HomeViewFooter />
     </div>
