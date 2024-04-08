@@ -9,6 +9,7 @@ const HomeViewResults = ({
   onConstructorDetailClick,
 }) => {
   const [results, setResults] = useState([]);
+  const [isAscending, setIsAscending] = useState(true);
 
   const handleDriverItemClick = (name, driver_photo) => {
     onDriverDetailClick(name, driver_photo);
@@ -47,6 +48,24 @@ const HomeViewResults = ({
     }
   }, [selectedRace]);
 
+  const getTopThreeDrivers = (results) => {
+    const topThree = results.filter(
+      (result) =>
+        result.positionOrder === 1 ||
+        result.positionOrder === 2 ||
+        result.positionOrder === 3
+    );
+    topThree.sort((a, b) => a.positionOrder - b.positionOrder);
+    return topThree;
+  };
+
+  const podiumResults = getTopThreeDrivers(results);
+
+  const toggleResultsOrder = () => {
+    setResults([...results].reverse());
+    setIsAscending(!isAscending);
+  };
+
   return (
     <div className=" border-t-8 border-f1-black flex-col ">
       <div className="bg-f1-black flex justify-center">
@@ -55,11 +74,18 @@ const HomeViewResults = ({
         </h1>
       </div>
       <div>
-        <ResultsPodium results={results} 
-        setSelectedDriver={handleDriverItemClick}/>
+        <ResultsPodium
+          results={podiumResults}
+          setSelectedDriver={handleDriverItemClick}
+        />
       </div>
       <div className="flex text-center border-b-2 border-f1-black pt-4 pr-4 font-f1 font-bold">
-        <h1 className="w-1/6 text-left">POS</h1>
+        <button
+          onClick={toggleResultsOrder}
+          className="w-1/6 text-left hover:text-candy-apple"
+        >
+          POS {isAscending ? "▲" : "▼"}
+        </button>
         <h1 className="w-2/6"></h1>
         <h1 className="w-1/6"></h1>
         <h1 className="w-1/6">LAPS</h1>

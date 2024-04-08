@@ -32,7 +32,7 @@ const ResultsPodium = ({ results, setSelectedDriver }) => {
   return (
     <div className="flex border-b-4 border-r-4 rounded-br-2xl border-f1-black ">
       <div className="flex-1"></div>
-      <div className="flex-grow flex justify-center items-end py-4 space-x-10 ">
+      <div className="flex-grow flex justify-center py-4 space-x-10 ">
         <button onClick={toggleDriver2Modal}>
           <PodiumPlace
             result={results[1]}

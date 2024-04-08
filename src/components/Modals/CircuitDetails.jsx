@@ -5,7 +5,13 @@ import AddFavoritesButton from "./AddFavoritesButton";
 import { supabase } from "../../SupaBase/supabaseClient";
 import CircuitLeaflet from "./CircuitLeaflet";
 
-const CircuitDetails = ({ circuitId,circuitName,circuitProfile,addToFavorites, update }) => {
+const CircuitDetails = ({
+  circuitId,
+  circuitName,
+  circuitProfile,
+  addToFavorites,
+  update,
+}) => {
   console.log("Circuit ID:", circuitId);
   const [circuit, setCircuit] = useState([]);
 
@@ -56,12 +62,8 @@ const CircuitDetails = ({ circuitId,circuitName,circuitProfile,addToFavorites, u
                 <h2 className="font-bold text-2xl uppercase">
                   {circuit[0].name}
                 </h2>
-                <p >
-                  Location: {circuit[0].location}
-                </p>
-                <p>
-                  Country: {circuit[0].country}
-                </p>
+                <p>Location: {circuit[0].location}</p>
+                <p>Country: {circuit[0].country}</p>
                 <a
                   href={circuit[0].url}
                   target="_blank"
@@ -76,14 +78,22 @@ const CircuitDetails = ({ circuitId,circuitName,circuitProfile,addToFavorites, u
                 </a>
               </>
             ) : (
-              <p>Loading...</p>
+              <p>
+                <svg
+                  class="animate-spin h-5 w-5 mr-3 ..."
+                  viewBox="0 0 24 24"
+                ></svg>
+                Loading...
+              </p>
             )}
           </div>
           <div className="flex flex-col space-y-4 items-center">
             <CloseButton update={update} />
-            <AddFavoritesButton circuitName={circuitName}
+            <AddFavoritesButton
+              circuitName={circuitName}
               circuitProfile={circuitProfile}
-              addToFavorites={addToFavorites}/>
+              addToFavorites={addToFavorites}
+            />
           </div>
         </div>
         {/* Replace these images with circuit images once we have them */}
@@ -96,10 +106,12 @@ const CircuitDetails = ({ circuitId,circuitName,circuitProfile,addToFavorites, u
                 className="h-64 rounded-lg border-white border constructor_photo_bg"
               />
               <div className="inline-block h-64 w-96">
-              <CircuitLeaflet
-                lat={circuit[0].lat}
-                lng={circuit[0].lng}
-                name={circuit[0].name} /></div>
+                <CircuitLeaflet
+                  lat={circuit[0].lat}
+                  lng={circuit[0].lng}
+                  name={circuit[0].name}
+                />
+              </div>
             </>
           ) : (
             <p>Loading...</p>

@@ -4,7 +4,7 @@ import CloseButton from "./CloseButton";
 const About = ({ update }) => {
   return (
     // Backdrop
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       {/* Modal Container */}
       <div className="bg-f1-black rounded-lg shadow-2xl p-6 flex flex-col about-line animate-slidetop">
         {/* Header */}
