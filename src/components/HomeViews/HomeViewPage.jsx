@@ -3,6 +3,7 @@ import HomeViewHeader from "./HomeViewHeader/HomeViewHeader";
 import HomeViewFooter from "./HomeViewFooter/HomeViewFooter";
 import HomeViewRaces from "./HomeViewRaces/HomeViewRaces";
 import HomeViewResultsPage from "./HomeViewResultsPage";
+import HomeViewStandingsPage from "./HomeViewStandingsPage";
 
 const HomeViewPage = () => {
   const [selectedSeason, setSelectedSeason] = useState("2023");
@@ -59,6 +60,7 @@ const HomeViewPage = () => {
         <div className="flex">
           <HomeViewRaces season={selectedSeason} onRaceItemClick={handleRaceItemClick}/>
         </div>
+        {/*
         <div className="flex-1">
           <HomeViewResultsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} onCircuitItemClick={handleCircuitItemClick}/>
         </div>
