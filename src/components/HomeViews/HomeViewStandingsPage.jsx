@@ -47,7 +47,7 @@ const HomeViewStandingsPage = ({
     try {
       let { data, error, status } = await supabase
       .from('constructorStandings')
-      .select(`position,points,wins, constructors!inner (name,constructor_profile)`)
+      .select(`position,points,wins, constructors!inner (constructorId,name,constructor_profile), races!inner (raceId)`)
         .eq("raceId", selectedRace)
         .order("position", { ascending: true });
 
@@ -95,7 +95,8 @@ const HomeViewStandingsPage = ({
         setSelectedDriver={handleDriverItemClick}/>
       </div>
       <div className="flex-1">
-        
+      <HomeViewStandingsListCon  constructorData={constructorResults}
+        setSelectedConstructor={handleConstructorItemClick} />
       </div>
     </div>
   </div>
