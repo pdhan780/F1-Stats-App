@@ -4,6 +4,7 @@ import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";
 import HomeViewResultsBar from "./HomeViewResultsBar/HomeViewResultsBar";
 import HomeViewResults from "./HomeViewResults/HomeViewResults";
 import HomeViewStandingsListDriver from "./HomeViewStandings/HomeViewStandingsListDriver";
+import HomeViewStandingsListCon from "./HomeViewStandings/HomeViewStandingsListCon";
 
 const HomeViewStandingsPage = ({
   selectedRace,

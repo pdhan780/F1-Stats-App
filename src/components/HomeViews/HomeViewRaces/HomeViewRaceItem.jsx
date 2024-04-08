@@ -4,6 +4,10 @@ const HomeViewRaceItem = ({ round, name, raceId, onResultsClick}) => {
     onResultsClick(raceId);
   };
 
+  const handleStandingsClick = () =>{
+    onResultsClick(raceId)
+  }
+
   return (
     <li className="flex items-center space-x-4 p-2">
       <span className="font-f1 font-bold border-2 border-candy-apple p-2 rounded">
@@ -15,7 +19,7 @@ const HomeViewRaceItem = ({ round, name, raceId, onResultsClick}) => {
         Results
       </button>
       <button className="bg-f1-black2 hover:bg-f1-dark-gray text-white font-bold py-2 px-4 rounded hover:-translate-y-0.5"
-      onClick={handleResultsClick}>
+      onClick={handleStandingsClick}>
         Standings
       </button>
     </li>
