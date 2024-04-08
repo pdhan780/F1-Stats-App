@@ -62,6 +62,10 @@ const HomeViewPage = () => {
         <div className="flex-1">
           <HomeViewResultsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} onCircuitItemClick={handleCircuitItemClick}/>
         </div>
+  */}
+        <div className="flex-1">
+          <HomeViewStandingsPage selectedRace ={selectedRace} onDriverItemClick ={handleDriverItemClick} onConstructorItemClick={handleConstructorItemClick} onCircuitItemClick={handleCircuitItemClick}/>
+        </div>
       </div>
       <HomeViewFooter />
     </div>
