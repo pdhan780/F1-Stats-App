@@ -27,6 +27,7 @@ import {
             pos={driver.position}
             points={driver.points}
             wins={driver.wins}
+            driverId={driver.drivers.driverId}
             setSelectedDriver={setSelectedDriver}
           />
         ))}

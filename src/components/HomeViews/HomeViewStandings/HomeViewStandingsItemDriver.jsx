@@ -10,11 +10,11 @@ import {
   
   const HomeViewStandingsItemDriver = ({
  driver,driver_photo,
- pos,points,wins,
+ pos,points,wins,driverId,
     setSelectedDriver
   }) => {
     const [isDriverModalOpen, setIsDriverModalOpen] = useState(false);
-    const [isConstructorModalOpen, setIsConstructorModalOpen] = useState(false);
+  
   
     const toggleDriverModal = () => {
       setIsDriverModalOpen(!isDriverModalOpen);
@@ -45,7 +45,7 @@ import {
         </button>
         <button
           className="w-1/6 font-bold text-left hover:text-candy-apple"
-          onClick={toggleConstructorModal}
+          onClick={toggleDriverModal}
         >
           {constructor}
         </button>
