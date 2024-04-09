@@ -13,7 +13,6 @@ const PodiumPlace = ({
     return "/".repeat(position);
   };
   const slashes = getSlashesForPosition(positionOrder);
-
   return (
     <div className="flex flex-col mx-1 relative hover:-translate-y-2 hover:scale-105 transition ease-in-out delay-25">
       <div
@@ -26,11 +25,11 @@ const PodiumPlace = ({
       />
       <div className="z-10 py-1 relative bg-white w-full h-full rounded-br-lg border-f1-black border-r border-b hover:border-candy-apple">
         
-        <h1 className="font-f1 text-lg font-bold text-center">
+        <h1 className="font-f1 text-lg font-bold text-center uppercase">
           <div className="text-xl text-candy-apple inline-block pr-2">
             {slashes}
           </div>
-          {result.drivers.code}
+          {result.drivers.code != null ? result.drivers.code : result.drivers.surname.substring(0, 3)}
         </h1>
       </div>
     </div>

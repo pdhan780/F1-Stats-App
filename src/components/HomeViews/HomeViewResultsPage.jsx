@@ -11,6 +11,8 @@ const HomeViewResultsPage = ({
   onCircuitItemClick,
 }) => {
   const [results, setResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasFetchedBackup, setHasFetchedBackup] = useState(false);
   const [currentView, setCurrentView] = useState("qualifying");
 
   const handleQualifyingClick = () => {
@@ -21,15 +23,41 @@ const HomeViewResultsPage = ({
     setCurrentView("results");
   };
 
-  async function fetchResults() {
+  const fetchResults = async () => {
+    setIsLoading(true);
     try {
-      let { data, error, status } = await supabase
+      let { data, error } = await supabase
         .from("qualifying")
         .select(
           `qualifyId, number, position, q1, q2, q3, drivers!inner (driverId, driverRef, code, forename, surname, driver_photo), races!inner (name, round, year, date), constructors!inner (name,constructor_profile, constructorId, constructorRef, nationality)`
         )
         .eq("raceId", selectedRace)
         .order("position", { ascending: true });
+
+      if (error) throw error;
+
+      if (data.length > 0) {
+        setResults(data);
+      } else {
+        await fetchBackupResults();
+      }
+    } catch (error) {
+      console.error("error", error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  async function fetchBackupResults() {
+    try {
+      let { data, error, status } = await supabase
+
+        .from("results")
+        .select(
+          `drivers!inner (driverId, driverRef, code, forename, surname, driver_photo, driver_profile), races!inner (name, round, year, date), constructors!inner (name, constructorId, constructorRef, nationality, constructor_profile)`
+        )
+        .eq("raceId", selectedRace)
+        .order("positionOrder", { ascending: true });
 
       if (error && status !== 406) {
         throw error;

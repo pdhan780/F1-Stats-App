@@ -22,6 +22,7 @@ const QualifyingItem = ({
   setSelectedDriver,
   setSelectedConstructor,
 }) => {
+
   const [isDriverModalOpen, setIsDriverModalOpen] = useState(false);
   const [isConstructorModalOpen, setIsConstructorModalOpen] = useState(false);
 

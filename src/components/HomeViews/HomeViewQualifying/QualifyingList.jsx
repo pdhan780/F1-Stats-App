@@ -20,7 +20,7 @@ const QualifyingList = ({
         {qualifying.map((qualifying, index) => (
           <QualifyingItem
             key={index}
-            pos={qualifying.position}
+            pos={qualifying.position >0 ? qualifying.position : "-"}
             driver={
               qualifying.drivers.forename + " " + qualifying.drivers.surname
             }
