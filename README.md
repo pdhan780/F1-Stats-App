@@ -11,7 +11,7 @@ F1 Analysis is a custom made website using React and Tailwindcss that allows the
 ## Login View
 This view introduces the user to the app, with a login button to head to the home view page
 
-![image](https://github.com/bpear520/comp4513_Asg2/assets/91140043/fe74a125-18c7-4cce-991b-8b01393c4e21)
+![image](https://github.com/bpear520/comp4513_Asg2/assets/91140043/b0b55909-ce16-4aa9-a553-0e7394eeb0e5)
 
 ## Home View 1
 This view allows users to search through races based on a season year, where they can then choose results to view the qualifying and race results.
