@@ -1,3 +1,6 @@
+//The main top head which contains 
+//about modal, favorites, logo, etc
+
 import React, { useState, useEffect, useRef } from "react";
 import Favorites from "../../Modals/Favorites";
 import About from "../../Modals/About";
@@ -38,7 +41,7 @@ const HomeViewHeader = ({ onSeasonSelect,driverInfo,constructorInfo, circuitInfo
           <SeasonDropdown onSeasonSelect={handleSeasonSelect} />
           <button
             onClick={() => setIsModalOpen(true)}
-            disabled={driverInfo.length === 0 && constructorInfo.length === 0 && circuitInfo.length === 0}
+            disabled={driverInfo.length === 0 && constructorInfo.length === 0 && circuitInfo.length === 0} //disable it depending on whats there
             className="transition ease-in-out delay-25 text-white font-f1 hover:bg-f1-black hover:text-white px-3 py-6 focus:outline-none"
           >
             FAVORITES

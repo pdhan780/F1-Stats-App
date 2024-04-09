@@ -1,3 +1,13 @@
+//HomeViewPage serves almost as the central hub for the main components
+//Here we can conditional render between the two main views; Results and Standings
+//A lot of the work being done here is data being "lifted up" to it from lower
+//child components
+//For example if a race item is needs to be added to favorites, the data
+//is lifted up all the way to this component, then it may send it to HomeViewHeader who can pass
+//it along to favorites
+//HomeViewRaceItem has the results and standings button, it lifts up the corresponding race id
+//all the way to here. From there we can use it to fetch data correctly
+
 import React, { useState, useEffect } from "react";
 import HomeViewHeader from "./HomeViewHeader/HomeViewHeader";
 import HomeViewFooter from "./HomeViewFooter/HomeViewFooter";

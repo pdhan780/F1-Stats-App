@@ -1,3 +1,10 @@
+//Where the orgin for the first home view begins..
+//Here we can fetch proper qualfiying data
+//You will notice we have two fetches, this is because old races
+//e.g 1993 and below do not have corresponding race id in qualifying
+//In this case we omit some of the info but still fetch from results
+//to at least display constructors, driver names , etc
+
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../SupaBase/supabaseClient";
 import HomeViewQualifying from "./HomeViewQualifying/HomeViewQualifying";

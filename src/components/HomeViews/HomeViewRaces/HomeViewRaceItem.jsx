@@ -1,3 +1,6 @@
+//this component is crucial, must lift up the 
+//corresponding clicked left side race up to HomeViewPage
+
 const HomeViewRaceItem = ({
   round,
   name,

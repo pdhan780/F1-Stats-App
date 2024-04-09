@@ -1,3 +1,4 @@
+//App contains conditional rendering of the Login Page and then HomeViewPage-the main display page
 import { useState } from 'react';
 import './index.css';
 

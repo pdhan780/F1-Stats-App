@@ -1,4 +1,4 @@
-// IMPLEMENT URL and replace with actual circuit images once we have them
+
 import { useState, useEffect } from "react";
 import CloseButton from "./CloseButton";
 import AddFavoritesButton from "./AddFavoritesButton";

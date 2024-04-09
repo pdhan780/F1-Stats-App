@@ -1,3 +1,5 @@
+//Setup the video to be played within login page
+
 import React from 'react';
 
 const VideoBackground = () => {

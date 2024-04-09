@@ -1,4 +1,6 @@
-
+//In the case of the empty button being clicked, favorites will get empty lists
+//passed to it
+//From there map can handle that and not actually render the item
 import DriverList from './DriverList';
 import ConstructorList from './ConstructorList';
 import CircuitList from './CircuitList';

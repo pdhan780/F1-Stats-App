@@ -8,7 +8,7 @@ import {
 } from "@material-tailwind/react";
 import QualifyingItem from "./QualifyingItem";
 
-// Parent List component for Drivers
+// Parent List component for Qualifying Item
 const QualifyingList = ({
   qualifying,
   setSelectedDriver,

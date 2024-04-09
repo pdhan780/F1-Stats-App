@@ -1,3 +1,5 @@
+//First home view results tab (top 3 drivers info, etc)
+
 import { useEffect, useState } from "react";
 import { supabase } from "../../../SupaBase/supabaseClient";
 import ResultsList from "./ResultsList";

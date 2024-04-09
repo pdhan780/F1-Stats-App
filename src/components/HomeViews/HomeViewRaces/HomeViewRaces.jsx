@@ -1,3 +1,8 @@
+//This is the left side races list
+//which could change depending on user selected season
+//Follow the Parent, List, Item formula where map does the heavy
+//lifting to create all our race items with the corresponding results,standings button
+
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../SupaBase/supabaseClient";
 import HomeViewRaceList from "./HomeViewRaceList";

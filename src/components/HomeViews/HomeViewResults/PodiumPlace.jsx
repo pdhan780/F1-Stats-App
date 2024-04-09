@@ -9,6 +9,8 @@ const PodiumPlace = ({
   imageHeight,
 }) => {
   if (!result) return null;
+
+  //quick helper for setting up the neat slash patterns in podium
   const getSlashesForPosition = (position) => {
     return "/".repeat(position);
   };

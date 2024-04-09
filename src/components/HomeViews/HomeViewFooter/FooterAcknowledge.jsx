@@ -1,3 +1,5 @@
+//lil shoutout to Randy!
+
 const FooterAcknowledge = () => {
   return (
     <div className="flex-col flex-1">

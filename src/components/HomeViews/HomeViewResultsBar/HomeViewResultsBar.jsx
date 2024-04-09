@@ -1,3 +1,5 @@
+//Top Bar for Results
+
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../SupaBase/supabaseClient";
 import CircuitDetails from "../../Modals/CircuitDetails";
