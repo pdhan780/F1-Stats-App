@@ -1,4 +1,6 @@
 ### COMP 4513 (Winter 2024)
+Live Version: https://comp4513-asg2-prod.vercel.app/ 
+
 # Assignment #2: F1 Analysis
 F1 Analysis is a custom made website using React and Tailwindcss that allows the F1 fans the freedom to view and favourite historical race data and visualizations.
 
