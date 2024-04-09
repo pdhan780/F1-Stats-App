@@ -16,10 +16,10 @@ This view introduces the user to the app, with a login button to head to the hom
 ## Home View 1
 This view allows users to search through races based on a season year, where they can then choose results to view the qualifying and race results.
 
-## Qualifying Tab
+# Qualifying Tab
 ![image](https://github.com/bpear520/comp4513_Asg2/assets/91140043/fe01a0c3-8ce8-42dd-b3cc-98a569f09054)
 
-## Results Tab
+# Results Tab
 ![image](https://github.com/bpear520/comp4513_Asg2/assets/91140043/d456b6c7-2674-4de5-ba28-8f5ab6a15358)
 
 ## Home View 2
