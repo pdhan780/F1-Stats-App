@@ -3,7 +3,7 @@ const LoginHeader = () => {
     <header className="w-full bg-candy-apple py-8 items-center">
       <div className="flex login-header overflow-x-clip">
       <img
-        src="src/assets/f1-default-share.png"
+        src="/assets/f1-default-share.png"
         alt="F1 Logo"
         className="h-12 ml-4 flex"
       />
