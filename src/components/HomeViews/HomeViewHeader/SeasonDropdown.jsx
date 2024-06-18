@@ -49,7 +49,7 @@ const SeasonDropdown = ({ onSeasonSelect }) => {
       >
         SEASON
         <img
-          src="src/assets/dropdown-chevron.png"
+          src="/assets/dropdown-chevron.png"
           alt="Down Arrow"
           className="h-2 ml-1"
         />
