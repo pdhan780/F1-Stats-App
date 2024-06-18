@@ -82,7 +82,7 @@ const HomeViewResultsBar = ({
       >
         {results.length > 0 ? "More Info" : "No Results"}
         <img
-          src="src/assets/side-chevron.png"
+          src="/assets/side-chevron.png"
           alt="Side Arrow"
           className="h-4 pl-1 pb-1 inline-block"
         />
