@@ -29,7 +29,7 @@ const HomeViewHeader = ({ onSeasonSelect,driverInfo,constructorInfo, circuitInfo
       <div className="flex items-center justify-between bg-candy-apple m-0 p-0">
         <div className="flex items-center space-x-4">
           <img
-            src="src/assets/f1-default-share.png"
+            src="/assets/f1-default-share.png"
             alt="F1 Logo"
             className="h-8 ml-4"
           />
