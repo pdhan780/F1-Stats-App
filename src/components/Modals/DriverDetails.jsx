@@ -84,7 +84,7 @@ const DriverDetails = ({ driverId, update, name, driverProfile, addToFavorites }
                 >
                   More Info
                   <img
-                    src="src/assets/side-chevron.png"
+                    src="/assets/side-chevron.png"
                     alt="Side Arrow"
                     className="h-4 pl-1 pb-1 inline-block"
                   />
